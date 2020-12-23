@@ -1,0 +1,14 @@
+---js
+{
+  layout: "post",
+  pagination: {
+    data: "posts",
+    size: 1,
+    alias: "blogpost",
+    before: function(data) {
+      return process.env.ELEVENTY_ENV == 'development' ? data.slice(0,5) : data;
+    }
+  },
+  permalink: "blog/{{ blogpost.slug }}/index.html"
+}
+---

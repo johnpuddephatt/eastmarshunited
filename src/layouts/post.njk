@@ -1,0 +1,62 @@
+---
+layout: base
+header_color: white
+---
+{% set title = blogpost.title.rendered %}
+{% set commentStatus = blogpost.comment_status %}
+{% set id = blogpost.id %}
+{% set author = blogpost._embedded.author[0] %}
+{% set featured_image = blogpost._embedded['wp:featuredmedia'][0] %}
+
+<div class="container post">
+
+  <div class="post__header">
+    <div class="post__breadcrumb">
+    <a href="/">Home</a> > <a href="/blog/">Blog</a>
+    </div>
+
+    <h1 class="post__title">{{ title | safe }}</h1>
+
+    {% if blogpost.excerpt.rendered %}
+      <div class="post__excerpt">
+        {{ blogpost.excerpt.rendered | safe }}
+      </div>
+    {% endif %}
+
+    {% if featured_image %}
+      <div class="post__featured-image">
+        {% wp_image featured_image %}
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="post__body">
+
+    <aside class="post__byline">
+      {% wp_avatar author, "post__byline__image" %}
+      <div>
+        <p class="post__byline__name"><span class="sr-only">Written by</span> {{ author.name }}</p>
+        <time class="post__byline__date" datetime="{{ blogpost.date }}">{{ blogpost.date | dateToFormat('DDD') }}</time>
+      </div>
+    </aside>
+
+    <article class="post__content">
+      {{ blogpost.content.rendered | safe }}
+    </article>
+  </div>
+
+  {% include "comments.njk" %}
+
+  {# related...
+    {%- for post in blogpost['jetpack-related-posts'].slice(0,3) -%}
+      <a class="posts__item" href="/blog/{{ post.slug }}">
+        <time class="posts__item__date" datetime="{{ post.date }}">{{ post.date }}</time>
+        <h2 class="posts__item__title">{{ post.title | safe }}</h2>
+        <div class="posts__item__excerpt">{{ post.excerpt }}</div>
+        <span class="button">Read more</span>
+      </a>
+    {%- endfor -%}
+  ... #}
+
+<div>

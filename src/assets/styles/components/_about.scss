@@ -1,0 +1,236 @@
+.about {
+
+  &__hero {
+    background-color: $gray-darkest;
+    color: #fff;
+
+    .container {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      @include orientation(portrait) {
+        min-height: calc(90vh - #{2.75 * $spacing});
+        padding-bottom: 2 * $spacing;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+    }
+
+    &__image {
+      margin-top: auto;
+      flex: 1;
+
+      @include about-image(1.2, 60%);
+
+      @include orientation(portrait) {
+        img  {
+          display: none !important;
+        }
+        &::after {
+          width: 250vw;
+          left: 100%;
+          transform: translate(-34.5%, (-165vw));
+        }
+      }
+
+      @include mq(md) {
+        @include about-image(1.1, 60%)
+      }
+
+      @include mq(lg) {
+        @include about-image(1, 60%)
+      }
+
+      @include mq(xl) {
+        @include about-image(0.8, 60%)
+      }
+
+      @include mq(xxl) {
+        @include about-image(0.725, 60%)
+      }
+
+      img {
+        display: block;
+        position: absolute;
+        bottom: -$spacing/2;
+        transform: translateX(-50%);
+        height: auto;
+      }
+
+      &::after {
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top: 100%;
+        height: 2000px;
+        display: block;
+        background-image: url(/assets/images/about-outline.svg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: top center;
+      }
+    }
+  }
+
+  &__intro {
+    padding-top: 3 * $spacing;
+    padding-bottom: 2 * $spacing;
+
+    .container {
+      @include mq(xl) {
+        position: relative;
+        > * {
+          max-width: 50%;
+        }
+      }
+    }
+
+    em {
+      @include emphasis($brand-yellow);
+    }
+
+    h2 {
+      font-size: ms(4);
+      margin-top: 1.5 * $spacing;
+      margin-bottom: $spacing;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__items {
+    margin-bottom: 2 * $spacing;
+  }
+
+  &__item {
+    &:nth-child(odd) &__header {
+
+      .icon--line {
+        transform: rotateY(180deg);
+        transform-origin: center center;
+        left: auto;
+        right: 65%;
+      }
+
+      @include orientation(landscape) {
+        flex-direction: row-reverse;
+
+        .about__item__text {
+          padding-right: 0;
+          padding-left: 2 * $spacing;
+        }
+      }
+    }
+
+    &__header {
+      padding-top: 3 * $spacing;
+      padding-bottom: 2 * $spacing;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+
+      @include orientation(portrait) {
+        padding-top: 2 * $spacing;
+        padding-bottom: 0;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    &__title {
+      font-size: ms(4);
+      margin-bottom: $spacing/2;
+    }
+
+    &__description {
+      // desc
+    }
+
+    &__image {
+      width: 50%;
+      flex: 0 0 50%;
+      position: relative;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      @include orientation(portrait) {
+        width: 100%;
+        margin: $spacing 0;
+      }
+
+      .icon--line {
+        width: 50vw;
+        height: auto;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        z-index: -1;
+      }
+    }
+
+    .icon--logo-shape {
+      position: absolute;
+      width: calc(100% + #{ 2 * $spacing });
+      height: calc(100% + #{ 2 * $spacing });
+      left: -1.5 * $spacing;
+      top: -$spacing;
+      height: auto;
+      z-index: -1;
+    }
+
+    @include slide_colorables($brand-green);
+
+    &:nth-child(2) {
+      @include slide_colorables($brand-blue);
+    }
+
+    &:nth-child(3) {
+      @include slide_colorables($brand-red);
+    }
+
+    &:nth-child(4) {
+      @include slide_colorables($brand-yellow);
+    }
+
+    &:nth-child(5) {
+      @include slide_colorables($brand-pink);
+    }
+
+    &__text {
+      padding-right: 2 * $spacing;
+
+      p {
+        font-weight: 600;
+        color: $gray-dark;
+      }
+    }
+
+    .read-more {
+      display: inline-block;
+      font-size: ms(-1);
+      margin-top: $spacing/2;
+    }
+
+    &__content {
+      border-bottom: 1px solid white;
+      padding-top: 0;
+      padding-bottom: $spacing;
+      max-width: map_get($breakpoints, md);
+
+      h2 {
+        margin-top: $spacing;
+        margin-bottom: $spacing/2;
+      }
+    }
+  }
+}

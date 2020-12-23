@@ -1,0 +1,80 @@
+.events {
+  padding: 0 0 4 * $spacing;
+  position: relative;
+
+  &__container {
+    padding-top: 2 * $spacing;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include orientation(portrait) {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    font-size: ms(4);
+
+    @include orientation(portrait) {
+      padding-top: $spacing;
+    }
+  }
+
+  &__post {
+    flex: 0 1 25%;
+    margin: 0 0 2 * $spacing;
+    margin-right: 3 * $spacing;
+    padding: 0;
+    text-decoration: none;
+    transition: box-shadow 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    color: $text-color;
+
+    @include orientation(portrait) {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+
+    @include orientation(landscape) {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 0;
+
+      + .event__post {
+        margin-left: 2 * $spacing;
+      }
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: ms(1);
+      margin-bottom: 0;
+
+      @include overline($brand-yellow);
+    }
+
+    &__date {
+      display: block;
+      font-size: ms(-1);
+      font-weight: 700;
+      margin-top: $spacing/4;
+      margin-bottom: $spacing/2;
+    }
+
+    &__text {
+      p {
+        font-size: ms(-1);
+        color: $gray;
+      }
+    }
+
+    .read-more {
+      display: inline-block;
+      font-size: ms(-1);
+      margin-top: $spacing/2;
+    }
+  }
+}

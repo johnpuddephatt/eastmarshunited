@@ -1,0 +1,65 @@
+.header {
+    background-color: $gray-darkest;
+    color: white;
+    padding: $spacing 0;
+    position: relative;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+      display: inline-block;
+      margin-bottom: -2 * $spacing;
+
+      @include orientation(portrait) {
+        .body__home & {
+          position: absolute;
+          z-index: 999;
+          top: 50vh;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          animation: fadeOutHeroLines 500ms 1.5s forwards;
+
+          .icon--logo {
+            width: 7 * $spacing;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            display: block;
+            background-color: $gray-darkest;
+            top: 0;
+            width: 70%;
+            transform: rotate(20deg);
+            padding-top: 70%;
+            margin: 15%;
+
+          }
+        }
+      }
+
+    }
+
+    .icon--logo {
+      color: white;
+      width: 3 * $spacing;
+      height: auto;
+    }
+
+    &--white {
+      background-color: #fff;
+
+      .icon--logo {
+        color: $gray-darkest;
+      }
+
+      .nav__toggle {
+        color: $gray-darkest;
+      }
+    }
+}

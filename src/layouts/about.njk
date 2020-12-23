@@ -1,0 +1,38 @@
+---
+layout: base
+---
+
+<div class="about__hero">
+  <div class="container">
+    <div class="about__hero__image">
+      <img src="/assets/images/girl.png" />
+    </div>
+  </div>
+</div>
+
+<div class="about__intro">
+  <div class="container">
+    {{ content | markdown | safe}}
+  </div>
+</div>
+
+<div class="about__items">
+  {% for slide in about %}
+    <div class="about__item" data-slide="{{ loop.index0 }}">
+      <div id="about-{{ slide.title | replace('_', '') | slug }}" class="container about__item__header">
+        <div class="about__item__text">
+          <h2 class="about__item__title">{{ slide.title | markdownify | safe }}</h2>
+          <p>{{ slide.description }}</p>
+        </div>
+        <div class="about__item__image">
+          {% icon 'logo-shape', 2028, 1186  %}
+          {% srcset slide.image, '', '', 640, 360, '(min-width: 1320px) 600px, (min-width: 940px) 50vw, 90vw' %}
+          {% icon 'line', 2558, 1658 %}
+        </div>
+      </div>
+      <div class="container about__item__content">
+        {{ slide.content | markdown | safe }}
+      </div>
+    </div>
+  {% endfor %}
+</div>

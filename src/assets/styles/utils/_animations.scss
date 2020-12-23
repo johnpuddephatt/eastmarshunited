@@ -1,0 +1,12 @@
+@keyframes fadeInHeroText {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutHeroLines {
+  100% {
+    opacity: 0;
+  }
+}

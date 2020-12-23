@@ -1,0 +1,59 @@
+.sun-and-moon {
+  position: relative;
+  padding: 2 * $spacing 0;
+
+  @include orientation(portrait) {
+    padding: 2 * $spacing 0 4 * $spacing;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    @include orientation(portrait) {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    font-size: ms(4);
+    margin-bottom: $spacing/2;
+  }
+
+  &__image {
+    flex: 0 0 40%;
+    display: block;
+    margin-bottom: $spacing;
+
+    @include orientation(landscape) {
+      margin-bottom: 0;
+      width: calc(50% + #{2 * $spacing});
+      margin-left: -2 * $spacing;
+    }
+  }
+
+  .button {
+    margin-top: $spacing;
+    @include button-bg($brand-green);
+  }
+
+  &__text {
+    @include orientation(landscape) {
+      padding-left: 2 * $spacing;
+      padding-right: 2 * $spacing;
+    }
+
+    p {
+      font-size: ms(-1);
+      color: $gray;
+    }
+  }
+
+  .read-more {
+    display: inline-block;
+    font-size: ms(-1);
+    margin-top: $spacing/2;
+  }
+}

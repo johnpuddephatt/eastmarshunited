@@ -1,0 +1,107 @@
+.hero {
+  background-color: $gray-darkest;
+  color: #fff;
+
+  .container {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include orientation(portrait) {
+      min-height: calc(100vh - #{2.75 * $spacing});
+      padding-bottom: 2 * $spacing;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+
+  .hero__loading {
+    display: none;
+
+    @include orientation(portrait) {
+      display: block;
+      right: 0;
+      top: 0;
+      width: auto;
+      height: 100vh;
+      position: absolute;
+      animation: fadeOutHeroLines 200ms 2s forwards;
+    }
+  }
+
+  &__text {
+    flex: 0 0 55%;
+
+    @include overline();
+
+    .button {
+      margin-top: $spacing;
+    }
+
+    @include orientation(portrait) {
+      opacity: 0;
+      transform: translateY($spacing/3);
+      animation: fadeInHeroText 1.5s 2.25s forwards;
+    }
+  }
+
+  &__title {
+    line-height: $line-height;
+    font-size: ms(2);
+
+    @include orientation(portrait) {
+      font-size: ms(3);
+    }
+
+    em {
+      @include emphasis($brand-yellow);
+    }
+  }
+
+  &__image {
+    margin-top: auto;
+    flex: 1;
+
+    @include hero-image(1.5, 60%)
+
+    @include orientation(portrait) {
+      display: none;
+      // @include hero-image(2.4, 60%)
+      //
+      // @include mq(md) {
+      //   @include hero-image(1.8, 60%)
+      // }
+
+    }
+
+    @include mq(lg) {
+      @include hero-image(1.3, 80%)
+    }
+
+    @include mq(xxl) {
+      @include hero-image(1.1, 85%)
+    }
+
+    img {
+      display: block;
+      position: absolute;
+      bottom: -$spacing/2;
+      transform: translateX(-50%);
+      height: auto;
+    }
+
+    &::after {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 100%;
+      height: 2000px;
+      display: block;
+      background-image: url(/assets/images/emu-family-outline-2.svg);
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: top center;
+    }
+  }
+}

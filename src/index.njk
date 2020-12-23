@@ -1,0 +1,178 @@
+---
+layout: base
+eleventyNavigation:
+  key: Home
+---
+
+{% set home_posts = posts.slice(0,4) %}
+
+<div class="hero">
+
+  <img class="hero__loading" src="/assets/images/lines.svg" width="486" height="778.229" />
+
+  <div class="container">
+    <div class="hero__text">
+      <h1 class="hero__title">We are <em>East Marsh United,</em> a community group from the East Marsh of Grimsby, dedicated to transforming where we live for the better.</h1>
+      <a class="button button--inverted" href="#">About us</a>
+    </div>
+    <div class="hero__image">
+      <img src="/assets/images/emu-family.png" />
+    </div>
+  </div>
+</div>
+
+{% if home_posts.length > 0 %}
+  <div class="news">
+
+    <h2 class="sr-only">Latest news</h2>
+    {% set featured_post = home_posts | first %}
+
+    <div class="container container__featured">
+      {% icon 'latest-news', 79, 50 %}
+
+      <a href="{{ featured_post.url }}" class="news__post news__post--featured">
+        {#
+          {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
+          {% if featured_post_image %}
+            {% wp_image featured_post_image, 'news__post--featured__image' %}
+          {% endif %}
+        #}
+        <img class="news__post--featured__image" src="https://placehold.it/1200x768" />
+        <div class="news__post__text">
+          <h2 class="news__post--featured__title">{{ featured_post.title.rendered | safe }}</h2>
+          <time class="news__post__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
+          <p>{{ featured_post.content.rendered | excerpt(150) | safe }}</p>
+          <span class="button read-more">Read more</span>
+        </div>
+      </a>
+    </div>
+
+    {% if home_posts.length > 3 %}
+      <div class="container container__posts">
+        {% for post in home_posts | array_slice(1,4) %}
+          <a href="{{ post.url }}" class="news__post">
+            {#
+              {% set post_image = post._embedded['wp:featuredmedia'][0] %}
+              {% if post_image %}
+                {% wp_image post_image, 'news__post__image' %}
+              {% endif %}
+            #}
+            <img class="news__post__image" src="https://placehold.it/1200x768" />
+            <div class="news__post__text">
+              <h2 class="news__post__title">{{ post.title.rendered | safe }}</h2>
+              <time class="news__post__date" datetime="{{ post.date }}">{{ post.date | dateToFormat('DDD') }}</time>
+              <p>{{ post.content.rendered | excerpt | safe}}</p>
+              <span class="button read-more">Read more</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+{% endif %}
+
+{% if about.length > 0 %}
+  <div class="about">
+    <h2 class="sr-only">About us</h2>
+
+    <div class="container about__container" data-simple-slider>
+      {% for slide in about %}
+      <div class="about__slide" data-slide="{{ loop.index0 }}">
+        <div class="about__slide__text">
+          <h2 class="about__slide__title">{{ slide.title | markdownify | safe }}</h2>
+          <p>{{ slide.description }}</p>
+          <a href="/about#about-{{ slide.title | replace('_', '') | slug }}" class="button read-more button--inverted">Learn more</a>
+        </div>
+        {% srcset slide.image, '', 'about__slide__image', 640, 360, '(min-width: 1320px) 600px, (min-width: 940px) 50vw, 90vw' %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="about__controls">
+      <div class="container">
+        <div class="about__controls__help">
+          {% icon sidescroll %}
+        </div>
+        <div class="about__controls__indicators">
+          {% for slide in about %}
+            <button class="about__control" data-target="{{ loop.index0 }}">{{slide.title | markdownify | striptags() | safe }}</button>
+          {% endfor %}
+        </div>
+        <nav class="about__controls__direction">
+          <button disabled data-direction="backwards"><span>Back</span></button>
+          <button data-direction="forwards"><span>Forward</span></button>
+        </nav>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if collections.events.length > 0 %}
+  <div class="events">
+    <h2 class="events__title container">Upcoming events</h2>
+    <div class="container events__container">
+      {% for event in collections.events | reverse | array_slice(0,3) %}
+        <a href="{{ event.url }}" class="events__post">
+          <div class="events__post__text">
+            <h2 class="events__post__title">{{ event.data.title }}</h2>
+            <time class="events__post__date" datetime="{{ event.data.date | dateToISO }}">{{ event.date | dateToISO | dateToFormat('DDD') }}</time>
+            <p>{{ event.templateContent | excerpt }}</p>
+            <span class="button read-more">Read more</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+<div class="get-involved">
+  <div class="container get-involved__container">
+    <div class="get-involved__image">
+      <img alt="Open-mouthed man with beard and glasses standing with his arms out at the side" src="/assets/images/get-involved-man.png" />
+    </div>
+    {% icon 'paperplane', 50, 50 %}
+    <div class="get-involved__text">
+      <h2 class="get-involved__title">Get involved</h2>
+      <p class="get-involved__description">We’re always looking for people to help the East Marsh grow. If you’d like to volunteer your time, tell us your story or contribute to shaping our neighbourhood plan, drop us a message today!</p>
+      <a href="#" class="get-involved__button button button--inverted">Email us</a>
+    </div>
+  </div>
+</div>
+
+<div class="marshian">
+  <div class="container marshian__container">
+    <div class="marshian__text">
+      <time class="marshian__date" datetime="{{ event.date | dateToISO }}">Issue 8, November 2020</time>
+      <h2 class="marshian__title">November news from the Proud East Marshian magazine</h2>
+      <p>Our very own magazine brought to you by our talented team of locals, packed with interviews, stories and updates – fresh from the East Marsh.</p>
+      <span class="button">Read the latest issue</span>
+    </div>
+    <div class="marshian__image">
+      {% srcset 'assets/images/PEM.jpg', 'Front cover of the latest edition of the Proud East Marshian', '', 210, 297, '(min-width: 1320px) 600px, (min-width: 940px) 50vw, 90vw' %}
+    </div>
+  </div>
+</div>
+
+<div class="sun-and-moon">
+  <div class="container sun-and-moon__container">
+    {% srcset 'assets/images/sunandmoon.jpg', 'Photo of girl holding up craft work', 'sun-and-moon__image', 297, 210, '(min-width: 1320px) 600px, (min-width: 940px) 50vw, 90vw' %}
+    <div class="sun-and-moon__text">
+      <h2 class="sun-and-moon__title">Celebrating our Sun and Moon Festival</h2>
+      <p>Our community arts programme, bringing painting, performance, poetry, music, crafts and other exciting new experiences to people in our area.</p>
+      <span class="button">Find out more</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="podcast">
+  <div class="container podcast__container">
+    <div class="podcast__text">
+      <h2 class="podcast__title">The East Marsh Chronicles</h2>
+      <p>Listen to our brand new podcast, talking to residents about the things that matter to us most.</p>
+      <button class="podcast__button">Play latest episode</button>
+    </div>
+    {% srcset '/assets/images/billy.png', 'Photo of Billy Dasein', 'podcast__image', 210, 345, '(min-width: 1320px) 600px, (min-width: 940px) 50vw, 90vw' %}
+    {% icon 'logo-shape', 2028, 1186  %}
+  </div>
+</div>

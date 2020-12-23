@@ -1,0 +1,16 @@
+---js
+{
+  layout: "posts",
+  eleventyNavigation: {
+    key: "Blog"
+  },
+  pagination: {
+    data: "posts",
+    size: 12,
+    alias: "paginated_posts",
+    before: function(data) {
+      return process.env.ELEVENTY_ENV == 'development' ? data.slice(0,5) : data;
+    }
+  }
+}
+---

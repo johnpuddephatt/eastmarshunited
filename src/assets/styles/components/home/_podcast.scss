@@ -1,0 +1,178 @@
+.podcast {
+  padding: 2 * $spacing 0 0;
+  position: relative;
+
+  @include orientation(landscape) {
+    padding: 2 * $spacing 0;
+  }
+
+  &::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    left: -1em;
+    right: -1em;
+    top: 50%;
+    transform: translateY(-200%);
+    padding-top: 65%;
+    background-image: url('/assets/images/podcast-line.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include orientation(landscape) {
+      transform: translateY(-87.5%);
+    }
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    @include orientation(landscape) {
+      flex-direction: row;
+    }
+
+    .icon--logo-shape {
+      bottom: 0;
+      $width: 100%;
+      width: $width;
+      height: 100%;
+      left: -$spacing;
+      display: block;
+      position: absolute;
+      z-index: -1;
+      color: $gray-darkest;
+
+      @include orientation(portrait) {
+        left: -$spacing/2;
+        height: 110vw;
+        width: auto;
+        top: -3 * $spacing;
+        bottom: auto;
+        transform-origin: top left;
+        transform: rotate(-75deg) translate(-65.5%, 8.5%) scaleX(0.7);
+      }
+    }
+  }
+
+  &__title {
+    font-size: ms(4);
+    margin-bottom: $spacing/2;
+  }
+
+  &__image {
+    width: 35%;
+    flex: 0 0 35%;
+    display: block;
+
+    @include orientation(portrait) {
+      width: 60%
+    }
+
+  }
+
+  &__date {
+    @include emphasis($brand-blue);
+
+    color: $brand-blue;
+    font-weight: 700;
+    padding: $spacing/3 $spacing/1.5;
+    margin-left: -$spacing/1.75;
+    margin-bottom: $spacing/2;
+  }
+
+  &__button {
+    @include button-reset;
+
+    margin-top: 1.5 * $spacing;
+    font-weight: 700;
+    text-transform: lowercase;
+    padding-bottom: $spacing/2;
+    border-bottom: 1px solid $gray-light;
+    font-size: ms(1);
+
+    @include orientation(landscape) {
+      font-size: ms(2);
+    }
+
+    &::before {
+      display: inline-block;
+      content: '‣';
+      color: $brand-green;
+      line-height: 0;
+      margin-top: 0.07em;
+      vertical-align: text-top;
+      font-size: ms(8);
+
+      @include orientation(landscape) {
+        margin-left: -0.4em;
+        margin-top: -0.02em;
+        font-size: ms(11);
+      }
+    }
+  }
+
+  &__text {
+    flex: 0 0 50%;
+    padding-top: $spacing;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    padding-left: $spacing;
+    margin-right: 2.5 * $spacing;
+
+    @include orientation(landscape) {
+      padding-left: 4 * $spacing;
+      margin-right: 0;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      top: -2 * $spacing;
+      content: '';
+      display: block;
+      background-image: url(/assets/images/quote.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-size: ms(4);
+      color: $brand-yellow;
+      transform-origin: 50% 50%;
+      height: 2 * $spacing;
+      width: 2 * $spacing;
+
+      @include mq(lg) {
+        height: 3 * $spacing;
+        width: 3 * $spacing;
+      }
+    }
+
+    &::after {
+      left: 100%;
+      top: 100%;
+      transform: rotate(180deg) translateY(120%);
+
+      @include orientation(landscape) {
+        transform: rotate(180deg);
+      }
+    }
+
+    p {
+      font-size: ms(-1);
+      color: $gray;
+    }
+  }
+
+  .read-more {
+    display: inline-block;
+    font-size: ms(-1);
+    margin-top: $spacing/2;
+  }
+}

@@ -1,0 +1,100 @@
+.posts {
+  &__featured {
+    text-decoration: none;
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      background-color: $gray-darkest;
+      color: white;
+      margin-top: 2 * $spacing;
+      margin-bottom: $spacing;
+      padding-bottom: 2 * $spacing;
+
+      @include orientation(landscape) {
+        flex-direction: row;
+        align-items: center;
+        padding-top: 2 * $spacing;
+      }
+    }
+
+    &__date {
+      @include emphasis($brand-yellow);
+      margin-bottom: $spacing/2;
+    }
+
+    &__text {
+      padding-left: $spacing;
+      padding-right: $spacing;
+    }
+
+    &__image {
+      display: block;
+      height: auto;
+      width: 100%;
+      margin-bottom: $spacing;
+
+      @include orientation(landscape) {
+        margin-left: -2 * $spacing;
+        margin-bottom: 0;
+        width: 50%;
+        flex: 0 0 50%;
+      }
+    }
+
+    &__title {
+      font-size: ms(2);
+      margin-bottom: $spacing/2;
+
+      @include orientation(landscape) {
+        font-size: ms(4);
+      }
+    }
+
+    &__button {
+      margin-top: 1.5 * $spacing;
+      @include button-bg($brand-yellow);
+      color: white;
+    }
+  }
+
+  &__item {
+    display: block;
+    text-decoration: none;
+    margin: $spacing 0 2 * $spacing;
+    padding-right: 4 * $spacing;
+    padding-bottom: 2 * $spacing;
+    color: inherit;
+    border-bottom: 1px solid $brand-blue;
+
+    .button {
+      margin-top: $spacing/2;
+      @include button-bg($brand-blue);
+    }
+
+    &__title {
+      margin-bottom: $spacing/2;
+    }
+
+    &__date {
+      display: inline-block;
+      color: $brand-blue;
+      font-weight: 700;
+      margin-bottom: $spacing/2;
+    }
+  }
+
+  &__container {
+    max-width: map-get($breakpoints, lg);
+  }
+
+  &__pagination {
+    margin-bottom: 2 * $spacing;
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}

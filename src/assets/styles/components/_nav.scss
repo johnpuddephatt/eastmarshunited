@@ -1,0 +1,69 @@
+.nav {
+    &__menu {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #fff;
+        z-index: map-get($z-layers, nav);
+    }
+
+    &__link {
+        display: block;
+        padding: $spacing/4 $spacing/2;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: lowercase;
+        color: $brand-blue;
+        font-size: ms(4);
+    }
+
+    &__toggle {
+        @include button-reset;
+
+        position: relative;
+        z-index: (map-get($z-layers, nav) + 1);
+    }
+
+    &.is-open &__toggle {
+        color: $brand-blue;
+      }
+
+    &.is-open  &__menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include orientation(landscape) {
+      @include mq(lg) {
+          &__toggle {
+              display: none;
+          }
+
+          &__menu {
+              display: flex;
+              position: static;
+              background-color: transparent;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+          }
+          
+          &__link {
+            color: white;
+            font-size: ms(0);
+
+            .header--white & {
+              color: $gray-darkest;
+            }
+          }
+
+          &.is-open &__menu {
+            flex-direction: row;
+          }
+      }
+  }
+}

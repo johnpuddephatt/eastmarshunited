@@ -1,0 +1,50 @@
+.comments {
+  width: 60%;
+
+  &__comment {
+    display: flex;
+    flex-direction: row;
+    margin: $spacing 0 2 * $spacing;
+
+    &__meta {
+      width: 4 * $spacing;
+      flex: 0 0 4 * $spacing;
+      margin-right: $spacing;
+    }
+
+    &__avatar {
+      border-radius: 999999px;
+      margin-bottom: $spacing/2;
+      width: 3 * $spacing;
+      height: auto;
+    }
+
+    &__author {
+      font-weight: 700;
+    }
+
+    &__date {
+      font-size: ms(-1);
+    }
+  }
+}
+
+.comment-respond {
+  label {
+    margin-top: $spacing/2;
+    display: block;
+  }
+
+  input, textarea {
+    border: 3px solid $brand-green;
+    width: 20em;
+    max-width: 100%;
+  }
+
+  button {
+    @include button-reset;
+    @include button-bg($brand-green);
+    margin-top: $spacing;
+    padding: 0 $spacing/2;
+  }
+}

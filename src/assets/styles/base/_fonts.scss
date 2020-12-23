@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Rockford Sans';
+    font-style: normal;
+    font-display: block;
+    font-weight: 400;
+    src: url('/assets/fonts/RockfordSansLight.woff2') format('woff2'),
+        url('/assets/fonts/RockfordSansLight.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Rockford Sans';
+    font-style: normal;
+    font-display: block;
+    font-weight: 700;
+    src: url('/assets/fonts/RockfordSansExtrabold.woff2') format('woff2'),
+        url('/assets/fonts/RockfordSansExtrabold.woff') format('woff');
+}

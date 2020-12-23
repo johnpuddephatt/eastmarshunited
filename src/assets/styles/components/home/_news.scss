@@ -1,0 +1,149 @@
+.news {
+  padding: 4 * $spacing 0 2 * $spacing;
+
+  @include orientation(landscape) {
+    padding: 4 * $spacing 0;
+  }
+  position: relative;
+
+  .icon--latest-news {
+    width: 4 * $spacing;
+    height: auto;
+    position: absolute;
+    top: -$spacing;
+    right: -$spacing;
+
+    @include orientation(landscape) {
+      top: auto;
+      right: auto;
+      bottom: -$spacing;
+      left: -$spacing;
+    }
+  }
+
+  .container {
+    &__featured {
+      position: relative;
+    }
+
+    &__posts {
+      display: flex;
+      flex-direction: column;
+
+      @include orientation(landscape) {
+        padding-top: 2 * $spacing;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__heading {
+    font-size: ms(3);
+  }
+
+  &__post {
+    flex: 0 1 25%;
+    margin: $spacing/2 0;
+    padding: 0;
+    text-decoration: none;
+    transition: box-shadow 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    color: $text-color;
+    margin-right: 2 * $spacing;
+
+    @include orientation(landscape) {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 0;
+
+      + .news__post {
+        margin-left: 2 * $spacing;
+      }
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: ms(1);
+      margin-bottom: 0;
+
+      @include orientation(portrait) {
+        font-size: ms(0);
+
+        @include overline($brand-yellow);
+      }
+    }
+
+    &__date {
+      display: block;
+      font-size: ms(-1);
+      font-weight: 500;
+      margin-top: $spacing/4;
+      margin-bottom: $spacing/2;
+
+      @include orientation(portrait) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__image {
+      width: 6em;
+      height: 6em;
+      border-radius: 99999px;
+      display: block;
+      margin-bottom: $spacing/2;
+    }
+
+    &__text {
+      p {
+        @include orientation(portrait) {
+          display: none;
+        }
+
+        font-size: ms(-1);
+        color: $gray;
+      }
+    }
+
+    &--featured {
+      display: flex;
+      flex-direction: column;
+
+      @include orientation(landscape) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &__image {
+        display: block;
+        width: 100%;
+        height: auto;
+
+        @include orientation(landscape) {
+          margin-right: 2 * $spacing;
+          width: 50%;
+          flex: 0 0 50%;
+        }
+      }
+
+      &__title {
+        font-size: ms(2);
+
+        @include orientation(landscape) {
+          font-size: ms(4);
+        }
+      }
+    }
+
+    .read-more {
+      display: inline-block;
+      font-size: ms(-1);
+      margin-top: $spacing/2;
+
+      @include orientation(portrait) {
+        display: none;
+      }
+    }
+  }
+}

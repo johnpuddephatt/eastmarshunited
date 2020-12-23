@@ -1,0 +1,38 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    line-height: $heading-line-height;
+    font-weight: 700;
+}
+
+h1 {
+    text-rendering: optimizeLegibility;
+}
+
+p {
+    margin: 0;
+}
+
+.lead {
+    font-size: 1.5rem;
+    font-weight: 300;
+
+    @include mq(md) {
+        font-size: 2rem;
+    }
+}
+
+a {
+  color: #000;
+  text-decoration-thickness: 0.15em;
+  text-decoration-color: transparentize($brand-blue,0.5);
+  transition: color $transition-fast, text-decoration-color $transition-slow;
+
+  &:hover {
+    text-decoration-color: $brand-blue;
+  }
+}

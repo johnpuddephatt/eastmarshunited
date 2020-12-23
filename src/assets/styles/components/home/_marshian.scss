@@ -1,0 +1,105 @@
+.marshian {
+  padding: 2 * $spacing 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    left: -1em;
+    right: -1em;
+    top: 50%;
+    transform: translateY(-110%);
+    padding-top: 140%;
+    background-image: url('/assets/images/marshian-line.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200%;
+
+    @include orientation(landscape) {
+      padding-top: 70%;
+      transform: translateY(-50%);
+      background-size: contain;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include orientation(landscape) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-size: ms(4);
+    margin-bottom: $spacing/2;
+  }
+
+  &__image {
+    width: 50%;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-bottom: $spacing;
+
+    @include orientation(landscape) {
+      width: 40%;
+      flex: 0 0 40%;
+      margin-bottom: 0;
+      margin-right: 2 * $spacing;
+      margin-left: 0;
+      border: $spacing solid transparent;
+      padding: $spacing;
+    }
+
+    &::before {
+      z-index: -1;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $brand-blue;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__date {
+    color: $brand-blue;
+    font-weight: 700;
+    padding: $spacing/3 $spacing/1.5;
+    @include emphasis($brand-blue);
+    margin-left: -$spacing/1.75;
+    margin-bottom: $spacing/2;
+  }
+
+  .button {
+    margin-top: $spacing;
+    @include button-bg($brand-blue);
+  }
+
+  &__text {
+    padding-right: 2 * $spacing;
+
+    p {
+      font-size: ms(-1);
+      color: $gray;
+    }
+  }
+
+  .read-more {
+    display: inline-block;
+    font-size: ms(-1);
+    margin-top: $spacing/2;
+  }
+}

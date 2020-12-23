@@ -1,0 +1,19 @@
+<footer class="footer" role="contentinfo">
+    <div class="footer__inner container">
+        <div class="footer__logo">
+          {% icon "logo", 220, 246 %}
+        </div>
+        <div class="footer__about">
+          <p>We are East Marsh United, a community group from the East Marsh of Grimsby, dedicated to transforming where we live for the better.</p>
+          <a class="button button--inverted" href="#">Donate</a>
+        </div>
+        <div class="footer__links">
+          <a href="/blog">News</a>
+          <a href="/about">About</a>
+          <a href="#">Press</a>
+          <a href="mailto:{{ contact.email }}">Email us</a>
+          <a href="{{ contact.facebook }}" target="_blank">Facebook</a>
+          <a href="{{ contact.twitter }}" target="_blank">Twitter</a>
+        </div>
+    </div>
+</footer>
