@@ -42,7 +42,7 @@ header_color: white
       <h2 class="sr-only" id="posts-pagination">Posts pages navigation</h2>
       <ol class="container posts__pagination__container">
       {%- for pageEntry in pagination.pages %}
-        <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}><span>Page </span>{{ loop.index }}</a></li>
+        <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}><span class="sr-only">Page </span>{{ loop.index }}</a></li>
       {%- endfor %}
       </ol>
     </nav>
