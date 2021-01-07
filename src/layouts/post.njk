@@ -18,9 +18,12 @@ header_color: white
     <h1 class="post__title">{{ title | safe }}</h1>
 
     {% if blogpost.excerpt.rendered %}
-      <div class="post__excerpt">
-        {{ blogpost.excerpt.rendered | safe }}
-      </div>
+      {% if not 'Continue reading' in blogpost.excerpt.rendered %}
+        <div class="post__excerpt">
+
+          {{ blogpost.excerpt.rendered | safe }}
+        </div>
+      {% endif %}
     {% endif %}
 
     {% if featured_image %}
