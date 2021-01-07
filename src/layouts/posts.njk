@@ -8,13 +8,10 @@ header_color: white
     {% set featured_post = paginated_posts | first %}
       <a href="/blog/{{ featured_post.slug }}" class="posts__featured">
         <div class="container posts__featured__container">
-          {#
-            {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
-            {% if featured_post_image %}
-              {% wp_image featured_post_image, 'posts__featured__image' %}
-            {% endif %}
-          #}
-          <img class="posts__featured__image" src="https://placehold.it/1200x768" />
+          {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
+          {% if featured_post_image %}
+            {% wp_image featured_post_image, 'posts__featured__image' %}
+          {% endif %}
           <div class="posts__featured__text">
             <time class="posts__featured__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
             <h2 class="posts__featured__title">{{ featured_post.title.rendered | safe }}</h2>

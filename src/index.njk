@@ -31,7 +31,7 @@ eleventyNavigation:
     <div class="container container__featured">
       {% icon 'latest-news', 79, 50 %}
 
-      <a href="/blog/{{ featured_post.slug }} class="news__post news__post--featured">
+      <a href="/blog/{{ featured_post.slug }}"" class="news__post news__post--featured">
           {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
           {% if featured_post_image %}
             {% wp_image featured_post_image, 'news__post--featured__image' %}
@@ -52,7 +52,7 @@ eleventyNavigation:
     {% if home_posts.length > 3 %}
       <div class="container container__posts">
         {% for post in home_posts | array_slice(1,4) %}
-          <a href="/blog/{{ post.slug }} class="news__post">
+          <a href="/blog/{{ post.slug }}" class="news__post">
             {% set post_image = post._embedded['wp:featuredmedia'][0] %}
             {% if post_image %}
               {% wp_image post_image, 'news__post__image' %}
