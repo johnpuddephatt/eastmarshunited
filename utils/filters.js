@@ -62,7 +62,10 @@ module.exports = {
         const endPosition = content.indexOf('</p>');
 
         if (startPosition !== -1 && endPosition !== -1) {
-          excerpt = content.substring(startPosition, endPosition).replace(/(<([^>]+)>)/ig,"").trim().substring(0,excerptLength) + '...';
+          excerpt = content.substring(startPosition, endPosition).replace(/(<([^>]+)>)/ig,"").trim();
+          if(excerpt.length > excerptLength) {
+            excerpt = excerpt.substring(0,excerptLength) + '...';
+          }
         }
         else {
           excerpt = '';

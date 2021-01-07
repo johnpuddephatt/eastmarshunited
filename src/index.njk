@@ -31,14 +31,11 @@ eleventyNavigation:
     <div class="container container__featured">
       {% icon 'latest-news', 79, 50 %}
 
-      <a href="{{ featured_post.url }}" class="news__post news__post--featured">
-        {#
+      <a href="/blog/{{ featured_post.slug }} class="news__post news__post--featured">
           {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
           {% if featured_post_image %}
             {% wp_image featured_post_image, 'news__post--featured__image' %}
           {% endif %}
-        #}
-        <img class="news__post--featured__image" src="https://placehold.it/1200x768" />
         <div class="news__post__text">
           <h2 class="news__post--featured__title">{{ featured_post.title.rendered | safe }}</h2>
           <time class="news__post__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
@@ -55,14 +52,11 @@ eleventyNavigation:
     {% if home_posts.length > 3 %}
       <div class="container container__posts">
         {% for post in home_posts | array_slice(1,4) %}
-          <a href="{{ post.url }}" class="news__post">
-            {#
-              {% set post_image = post._embedded['wp:featuredmedia'][0] %}
-              {% if post_image %}
-                {% wp_image post_image, 'news__post__image' %}
-              {% endif %}
-            #}
-            <img class="news__post__image" src="https://placehold.it/1200x768" />
+          <a href="/blog/{{ post.slug }} class="news__post">
+            {% set post_image = post._embedded['wp:featuredmedia'][0] %}
+            {% if post_image %}
+              {% wp_image post_image, 'news__post__image' %}
+            {% endif %}
             <div class="news__post__text">
               <h2 class="news__post__title">{{ post.title.rendered | safe }}</h2>
               <time class="news__post__date" datetime="{{ post.date }}">{{ post.date | dateToFormat('DDD') }}</time>
