@@ -35,6 +35,8 @@ eleventyNavigation:
           {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
           {% if featured_post_image %}
             {% wp_image featured_post_image, 'news__post--featured__image' %}
+          {% else %}
+            No image
           {% endif %}
         <div class="news__post__text">
           <h2 class="news__post--featured__title">{{ featured_post.title.rendered | safe }}</h2>
@@ -56,6 +58,8 @@ eleventyNavigation:
             {% set post_image = post._embedded['wp:featuredmedia'][0] %}
             {% if post_image %}
               {% wp_image post_image, 'news__post__image' %}
+            {% else %}
+              No image
             {% endif %}
             <div class="news__post__text">
               <h2 class="news__post__title">{{ post.title.rendered | safe }}</h2>
