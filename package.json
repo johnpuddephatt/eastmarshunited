@@ -35,7 +35,7 @@
     "critical": "^2.0.3",
     "cssesc": "^3.0.0",
     "del-cli": "^3.0.1",
-    "eleventy-plugin-srcset": "^0.1.18",
+    "eleventy-plugin-srcset": "^0.1.19",
     "flat-cache": "^3.0.4",
     "focus-trap": "^5.1.0",
     "focus-visible": "^5.2.0",
