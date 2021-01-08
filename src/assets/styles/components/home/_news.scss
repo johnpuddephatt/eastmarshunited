@@ -93,6 +93,8 @@
       border-radius: 99999px;
       display: block;
       margin-bottom: $spacing/2;
+      object-fit: cover;
+      object-position: center;
     }
 
     &__text {

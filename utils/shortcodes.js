@@ -4,12 +4,12 @@ module.exports = {
         <use xlink:href="#icon-${name}"></use>
       </svg>`
     },
-    wp_image: function(image, className) {
+    wp_image: function(image, className, sizes) {
       let srcset = '';
-      let sizes = ['medium','large','full'];
-      for(var i = 0; i < sizes.length; i++) {
-        srcset += `${ image.media_details.sizes[sizes[i]].source_url } ${ image.media_details.sizes[sizes[i]].width }w`;
-        if(sizes.length - i > 1) {
+      let sizeNames = ['medium','large','full'];
+      for(var i = 0; i < sizeNames.length; i++) {
+        srcset += `${ image.media_details.sizes[sizeNames[i]].source_url } ${ image.media_details.sizes[sizeNames[i]].width }w`;
+        if(sizeNames.length - i > 1) {
           srcset += ','
         }
       }
@@ -17,7 +17,8 @@ module.exports = {
         alt="${ image.alt_text }"
         class="${ className }"
         src="${ image.media_details.sizes.large.source_url }"
-        srcset="${ srcset }" >`
+        srcset="${ srcset }"
+        sizes="${ sizes }" >`
     },
     wp_avatar: function(author, className) {
       let srcset = '';

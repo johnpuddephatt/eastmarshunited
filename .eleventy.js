@@ -12,7 +12,9 @@ module.exports = function (config) {
     // Plugins
     config.addPlugin(pluginRss)
     config.addPlugin(pluginNavigation)
-    config.addPlugin( pluginSrcsetImg, {})
+    config.addPlugin( pluginSrcsetImg, {
+      resizeOriginal: false
+    })
 
     // Filters
     Object.keys(filters).forEach((filterName) => {
