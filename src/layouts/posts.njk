@@ -6,7 +6,7 @@ header_color: white
 
   {% if pagination.pageNumber == 0 %}
     {% set featured_post = paginated_posts | first %}
-      <a href="/blog/{{ featured_post.slug }}" class="posts__featured">
+      <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}" class="posts__featured">
         <div class="container posts__featured__container">
           {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
           {% if featured_post_image %}
@@ -27,7 +27,7 @@ header_color: white
 
   <div class="container posts__container">
     {%- for post in paginated_posts -%}
-      <a class="posts__item" href="/blog/{{ post.slug }}">
+      <a class="posts__item" href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}">
         <time class="posts__item__date" datetime="{{ post.date }}">{{ post.date | dateToFormat('DDD') }}</time>
         <h2 class="posts__item__title">{{ post.title.rendered | safe }}</h2>
         <div class="posts__item__excerpt">{{ post.excerpt.rendered | excerpt(120)  | striptags() | safe }}</div>
