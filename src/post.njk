@@ -9,6 +9,6 @@
       return process.env.ELEVENTY_ENV == 'development' ? data.slice(0,5) : data;
     }
   },
-  permalink: "blog/{{ blogpost.slug }}/index.html"
+  permalink: "/{{ blogpost.date | dateToFormat('yyyy/MM/dd') }}/{{ blogpost.slug }}/index.html"
 }
 ---

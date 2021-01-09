@@ -7,6 +7,7 @@ header_color: white
 {% set id = blogpost.id %}
 {% set author = blogpost._embedded.author[0] %}
 {% set featured_image = blogpost._embedded['wp:featuredmedia'][0] %}
+{% set image = featured_image.media_details.sizes.medium.source_url %}
 
 <div class="container post">
 
@@ -49,7 +50,10 @@ header_color: white
     </article>
   </div>
 
-  {% include "comments.njk" %}
+  {# {% include "comments.njk" %} #}
+
+  <script defer src="https://commento.jdp.org.uk/js/commento.js"></script>
+  <div id="commento"></div>
 
   {# related...
     {%- for post in blogpost['jetpack-related-posts'].slice(0,3) -%}

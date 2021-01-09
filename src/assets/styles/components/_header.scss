@@ -5,9 +5,9 @@
     position: relative;
 
     &__inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     &__logo {
@@ -21,10 +21,10 @@
           top: 50vh;
           left: 50%;
           transform: translate(-50%,-50%);
-          animation: fadeOutHeroLines 500ms 1.5s forwards;
+          // animation: fadeOutHeroLines 5000ms 15s forwards;
 
           .icon--logo {
-            width: 7 * $spacing;
+            width: 12 * $spacing;
           }
 
           &::before {
@@ -34,8 +34,8 @@
             display: block;
             background-color: $gray-darkest;
             top: 0;
-            width: 70%;
-            transform: rotate(20deg);
+            width: 75%;
+            transform: rotate(17.5deg);
             padding-top: 70%;
             margin: 15%;
 

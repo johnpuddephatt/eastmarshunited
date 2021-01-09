@@ -21,6 +21,7 @@
     }
 
     &__toggle {
+        opacity: 0;
         @include button-reset;
 
         position: relative;
@@ -28,14 +29,14 @@
     }
 
     &.is-open &__toggle {
-        color: $brand-blue;
-      }
+      color: $brand-blue;
+    }
 
     &.is-open  &__menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     @include orientation(landscape) {
@@ -51,7 +52,7 @@
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
           }
-          
+
           &__link {
             color: white;
             font-size: ms(0);

@@ -21,12 +21,12 @@
 
     @include orientation(portrait) {
       display: block;
-      right: 0;
+      right: 4 * $spacing;
       top: 0;
       width: auto;
       height: 100vh;
       position: absolute;
-      animation: fadeOutHeroLines 200ms 2s forwards;
+      animation: fadeOutHeroLines 2000ms 20s forwards;
     }
   }
 
@@ -40,7 +40,7 @@
     }
 
     @include orientation(portrait) {
-      opacity: 0;
+      display: none;
       transform: translateY($spacing/3);
       animation: fadeInHeroText 1.5s 2.25s forwards;
     }
