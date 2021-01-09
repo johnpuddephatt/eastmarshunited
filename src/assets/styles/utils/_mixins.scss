@@ -3,6 +3,17 @@
 //--------------------
 
 @mixin slide_colorables($color) {
+
+  text-decoration-color: transparentize($color,0.5);
+
+  &:hover {
+    text-decoration-color: $color;
+  }
+
+  em {
+    @include emphasis($color);
+  }
+
   .about__slide__title,
   .about__item__title {
     @include overline($color);

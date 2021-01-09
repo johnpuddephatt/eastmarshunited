@@ -3,6 +3,7 @@
     "description": "We’re dedicated to transforming where we live for the better",
     "url": "https://east-marsh.netlify.app",
     "image": "/assets/images/opengraph.jpg",
+    "email": "info@eastmarshunited.org",
     "lang": "en",
     "locale": "en_uk"
 }

@@ -6,7 +6,7 @@
     padding-top: 2 * $spacing;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     @include orientation(portrait) {
       flex-direction: column;
@@ -22,7 +22,8 @@
   }
 
   &__post {
-    flex: 0 1 25%;
+    flex: 1 1 25%;
+    max-width: 30%;
     margin: 0 0 2 * $spacing;
     margin-right: 3 * $spacing;
     padding: 0;
@@ -33,6 +34,7 @@
     color: $text-color;
 
     @include orientation(portrait) {
+      max-width: none;
       &:nth-child(3) {
         display: none;
       }
@@ -41,7 +43,7 @@
     @include orientation(landscape) {
       margin-top: 0;
       margin-bottom: 0;
-      margin-right: 0;
+      margin-right: 2 * $spacing;
 
       + .event__post {
         margin-left: 2 * $spacing;

@@ -14,7 +14,7 @@
           height: auto;
           padding: 2 * $spacing 0;
           flex-direction: row;
-          justify-content: space-between;
+          justify-content: flex-start;
           align-items: flex-start;
         }
     }
@@ -24,7 +24,7 @@
 
       @include orientation(landscape) {
         margin-bottom: 0;
-        margin-right: auto;
+        margin-right: 0;
       }
 
       .icon--logo {
@@ -40,7 +40,7 @@
 
     &__about {
       @include orientation(landscape) {
-        flex: 0 0 25%;
+        flex: 0 0 30%;
         margin-left: $spacing;
       }
 
@@ -65,6 +65,7 @@
     &__links {
       margin-top: $spacing * 2;
       column-count: 2;
+      column-gap: $spacing;
       margin-right: 35vw;
 
       @include orientation(landscape) {
@@ -84,6 +85,38 @@
         &:hover {
           color: #fff;
         }
+      }
+    }
+
+    &__logos {
+      margin-top: 2 * $spacing;
+
+      @include orientation(landscape) {
+        margin-top: $spacing/1.5;
+        padding-left: $spacing;
+        margin-left: auto;
+        flex: 0 0 25%;
+
+      }
+
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      a {
+        flex: 1 1 50%;
+        max-width: 4 * $spacing;
+
+         + a {
+            margin-left: $spacing/2;
+         }
+      }
+
+      svg {
+        color: $gray-light;
+
+        width: 100%;
+        height: auto;
       }
     }
 }

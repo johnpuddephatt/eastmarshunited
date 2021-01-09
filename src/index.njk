@@ -114,14 +114,16 @@ eleventyNavigation:
     <h2 class="events__title container">Upcoming events</h2>
     <div class="container events__container">
       {% for event in collections.events | reverse | array_slice(0,3) %}
-        <a href="{{ event.url }}" class="events__post">
+        <div class="events__post">
           <div class="events__post__text">
             <h2 class="events__post__title">{{ event.data.title }}</h2>
             <time class="events__post__date" datetime="{{ event.data.date | dateToISO }}">{{ event.date | dateToISO | dateToFormat('DDD') }}</time>
             <p>{{ event.templateContent | excerpt }}</p>
-            <span class="button read-more">Read more</span>
+            {% if event.data.zoom %}
+              <a target="_blank" href="{{ event.data.zoom }}" class="button read-more">Zoom link</a>
+            {% endif %}
           </div>
-        </a>
+        </div>
       {% endfor %}
     </div>
   </div>
@@ -147,7 +149,7 @@ eleventyNavigation:
       <time class="marshian__date" datetime="{{ event.date | dateToISO }}">Issue 9, December 2020</time>
       <h2 class="marshian__title">December news from the Proud East Marshian magazine</h2>
       <p>Our very own magazine brought to you by our talented team of locals, packed with interviews, stories and updates – fresh from the East Marsh.</p>
-      <span class="button">Read the latest issue</span>
+      <a href="https://ee06b32c-da88-412a-8f88-21bb0d55b350.filesusr.com/ugd/52a07e_ab93170675cd4629938b60d0cf5a1a50.pdf" class="button">Read the latest issue</a>
     </div>
     <div class="marshian__image">
       {% srcset 'assets/images/pem-dec-2020.jpg', 'Front cover of the latest edition of the Proud East Marshian', '', 210, 297, '(min-width: 1320px) 300px, (min-width: 940px) 50vw, 90vw', '', true %}

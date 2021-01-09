@@ -47,13 +47,15 @@ header_color: white
 
     <article class="post__content">
       {{ blogpost.content.rendered | safe }}
+
+
+        <script defer src="https://commento.jdp.org.uk/js/commento.js"></script>
+        <div id="commento"></div>
     </article>
   </div>
 
   {# {% include "comments.njk" %} #}
 
-  <script defer src="https://commento.jdp.org.uk/js/commento.js"></script>
-  <div id="commento"></div>
 
   {# related...
     {%- for post in blogpost['jetpack-related-posts'].slice(0,3) -%}

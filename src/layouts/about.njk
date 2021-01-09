@@ -13,6 +13,16 @@ layout: base
 <div class="about__intro">
   <div class="container">
     {{ content | markdown | safe}}
+
+    <h2>What we do</h2>
+    <p>Our work is grouped into five main areas:</p>
+    <div class="about__jump">
+      {% for slide in about %}
+        <a class="about__jump__link" href="#about-{{ slide.title | replace('_', '') | slug }}">
+          {{ slide.title | markdownify | safe }}
+        </a>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
