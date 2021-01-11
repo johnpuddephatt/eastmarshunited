@@ -13,7 +13,7 @@ header_color: white
 
   <div class="post__header">
     <div class="post__breadcrumb">
-    <a href="/">Home</a> > <a href="/blog/">Blog</a>
+    <a href="/">Home</a> > <a href="/news/">News</a>
     </div>
 
     <h1 class="post__title">{{ title | safe }}</h1>
@@ -59,7 +59,7 @@ header_color: white
 
   {# related...
     {%- for post in blogpost['jetpack-related-posts'].slice(0,3) -%}
-      <a class="posts__item" href="/blog/{{ post.slug }}">
+      <a class="posts__item" href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}">
         <time class="posts__item__date" datetime="{{ post.date }}">{{ post.date }}</time>
         <h2 class="posts__item__title">{{ post.title | safe }}</h2>
         <div class="posts__item__excerpt">{{ post.excerpt }}</div>
