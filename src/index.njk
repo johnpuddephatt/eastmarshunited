@@ -61,7 +61,7 @@ eleventyNavigation:
               <h2 class="news__post__title">{{ post.title.rendered | safe }}</h2>
               <time class="news__post__date" datetime="{{ post.date }}">{{ post.date | dateToFormat('DDD') }}</time>
               <p>{{ post.excerpt.rendered | excerpt(80) | safe }}</p>
-              <span class="button read-more">Read more</span>
+              <span class="read-more">Read more</span>
             </div>
           </a>
         {% endfor %}

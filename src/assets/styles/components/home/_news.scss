@@ -173,6 +173,15 @@
       display: inline-block;
       font-size: ms(-1);
       margin-top: $spacing/2;
+      font-weight: 600;
+      color: $gray-dark;
+
+      &::after {
+        display: inline-block;
+        margin-left: $spacing/4;
+        content: '>';
+
+      }
 
       @include orientation(portrait) {
         display: none;
