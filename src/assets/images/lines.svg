@@ -3,13 +3,18 @@
   <style>
     .path {
       stroke-dasharray: 1100;
-      stroke-dashoffset: 1100;
       animation: dash 2s linear forwards;
     }
 
     @keyframes dash {
-      to {
-        stroke-dashoffset: -1100;
+      0% {
+        stroke-dashoffset: 3300;
+      }
+      50% {
+        stroke-dashoffset: 2200;
+      }
+      100% {
+        stroke-dashoffset: 1100;
       }
     }
   </style>

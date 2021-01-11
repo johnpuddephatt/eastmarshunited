@@ -21,7 +21,8 @@
 
     @include orientation(portrait) {
       display: block;
-      right: 4 * $spacing;
+      left: 50%;
+      transform: translateX(-60%);
       top: 0;
       width: auto;
       height: 100vh;

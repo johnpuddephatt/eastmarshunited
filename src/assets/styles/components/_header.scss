@@ -17,7 +17,8 @@
       @include orientation(portrait) {
         .body__home & {
           position: absolute;
-          z-index: 999;
+          z-index: map-get($z-layers, content-overlay);
+
           top: 50vh;
           left: 50%;
           transform: translate(-50%,-50%);

@@ -66,11 +66,12 @@
 
   &__image {
     width: 35%;
+    height: auto;
     flex: 0 0 35%;
     display: block;
 
     @include orientation(portrait) {
-      width: 60%
+      width: 60%;
     }
 
   }
