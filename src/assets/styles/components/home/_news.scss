@@ -7,13 +7,14 @@
   position: relative;
 
   &__read-all {
-    margin: $spacing auto 0;
+    margin: 2 * $spacing auto 0;
   }
 
   .icon--latest-news {
     width: 5 * $spacing;
     height: auto;
     position: absolute;
+    z-index: map-get($z-layers, content-overlay);
     top: -$spacing;
     right: -$spacing/2;
 
@@ -30,8 +31,14 @@
       position: relative;
     }
 
+    &__read-all {
+      display: flex;
+      flex-direction: row;
+    }
+
     &__posts {
       display: flex;
+
       flex-direction: column;
 
       @include orientation(landscape) {

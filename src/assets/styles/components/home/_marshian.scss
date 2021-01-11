@@ -79,8 +79,11 @@
     font-weight: 700;
     padding: $spacing/3 $spacing/1.5;
     @include emphasis($brand-blue);
-    margin-left: -$spacing/1.75;
     margin-bottom: $spacing/2;
+
+    @include orientation(landscape) {
+      margin-left: -$spacing/1.75;
+    }
   }
 
   .button {
