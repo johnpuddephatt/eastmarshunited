@@ -41,6 +41,7 @@
     }
 
     @include orientation(portrait) {
+      padding-bottom: $spacing;
       opacity: 0;
       transform: translateY($spacing/3);
       animation: fadeInHeroText 1.5s 2.25s forwards;

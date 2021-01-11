@@ -13,11 +13,6 @@
     position: absolute;
     top: 2 * $spacing;
     right: 0;
-
-    @include orientation(portrait) {
-      top: 2 * $spacing;
-      right: 2 * $spacing;
-    }
   }
 
   &__container {

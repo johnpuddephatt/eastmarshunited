@@ -6,12 +6,16 @@
   }
   position: relative;
 
+  &__read-all {
+    margin: $spacing auto 0;
+  }
+
   .icon--latest-news {
-    width: 4 * $spacing;
+    width: 5 * $spacing;
     height: auto;
     position: absolute;
     top: -$spacing;
-    right: -$spacing;
+    right: -$spacing/2;
 
     @include orientation(landscape) {
       top: auto;
@@ -63,14 +67,28 @@
       }
     }
 
+    @include orientation(portrait) {
+      margin-top: $spacing;
+      position: relative;
+
+      &::after {
+        display: block;
+        content:  '>';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        font-weight: 900;
+        font-size: ms(2);
+      }
+    }
+
     &__title {
       font-weight: 700;
       font-size: ms(1);
       margin-bottom: 0;
 
       @include orientation(portrait) {
-        font-size: ms(0);
-
         @include overline($brand-yellow);
       }
     }
@@ -95,6 +113,10 @@
       margin-bottom: $spacing/2;
       object-fit: cover;
       object-position: center;
+
+      @include orientation(portrait) {
+        display: none;
+      }
     }
 
     &__text {
@@ -111,6 +133,7 @@
     &--featured {
       display: flex;
       flex-direction: column;
+      margin-right: 0;
 
       @include orientation(landscape) {
         flex-direction: row;
@@ -121,6 +144,7 @@
         display: block;
         width: 100%;
         height: auto;
+        margin-bottom: $spacing/2;
 
         @include orientation(landscape) {
           margin-right: 2 * $spacing;
@@ -130,7 +154,7 @@
       }
 
       &__title {
-        font-size: ms(2);
+        font-size: ms(3);
 
         @include orientation(landscape) {
           font-size: ms(4);

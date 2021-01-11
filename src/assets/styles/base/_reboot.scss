@@ -69,8 +69,8 @@ html {
 
 html {
     // Sets a specific default `font-size` for user with `rem` type scales.
-    font-size: $font-size-root /  1.1;
-    @include mq(lg) {
+    font-size: $font-size-root;
+    @include mq(md) {
       font-size: $font-size-root;
     }
     @include mq(lg) {
