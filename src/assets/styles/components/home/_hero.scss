@@ -26,12 +26,12 @@
       width: auto;
       height: 100vh;
       position: absolute;
-      animation: fadeOutHeroLines 2000ms 20s forwards;
+      animation: fadeOutHeroLines 200ms 2s forwards;
     }
   }
 
   &__text {
-    flex: 0 0 55%;
+    flex: 0 0 52.5%;
 
     @include overline();
 
@@ -40,7 +40,7 @@
     }
 
     @include orientation(portrait) {
-      display: none;
+      opacity: 0;
       transform: translateY($spacing/3);
       animation: fadeInHeroText 1.5s 2.25s forwards;
     }
@@ -67,12 +67,6 @@
 
     @include orientation(portrait) {
       display: none;
-      // @include hero-image(2.4, 60%)
-      //
-      // @include mq(md) {
-      //   @include hero-image(1.8, 60%)
-      // }
-
     }
 
     @include mq(lg) {

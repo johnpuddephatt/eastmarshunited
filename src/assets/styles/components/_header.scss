@@ -21,10 +21,10 @@
           top: 50vh;
           left: 50%;
           transform: translate(-50%,-50%);
-          // animation: fadeOutHeroLines 5000ms 15s forwards;
+          animation: fadeOutHeroLines 500ms 1.5s forwards;
 
           .icon--logo {
-            width: 12 * $spacing;
+            width: 6 * $spacing;
           }
 
           &::before {

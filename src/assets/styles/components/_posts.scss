@@ -35,7 +35,10 @@
       margin-bottom: $spacing;
 
       @include orientation(landscape) {
-        margin-left: -2 * $spacing;
+        margin-left: -$spacing;
+        @include mq(xxl) {
+          margin-left: -2 * $spacing;
+        }
         margin-bottom: 0;
         width: 50%;
         flex: 0 0 50%;

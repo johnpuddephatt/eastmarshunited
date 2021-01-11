@@ -21,7 +21,6 @@
     }
 
     &__toggle {
-        opacity: 0;
         @include button-reset;
 
         position: relative;
