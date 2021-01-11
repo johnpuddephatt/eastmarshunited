@@ -8,7 +8,8 @@ const fetchAll = require('./fetchAll.js');
 module.exports = async function fetchData(type, endPoint) {
 	const cache = flatcache.load(type, path.resolve('./src/_datacache'));
 	const key = getCacheKey();
-	const cachedData = cache.getKey(key);
+	// const cachedData = cache.getKey(key);
+	const cachedData = false;
 
 	// Fetch again if we don't have cache.
 	if (!cachedData) {
