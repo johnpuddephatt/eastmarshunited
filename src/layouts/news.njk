@@ -18,7 +18,7 @@ header_color: white
           <time class="posts__featured__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
           <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}"><h2 class="posts__featured__title">{{ featured_post.title.rendered | safe }}</h2></a>
           <p>{{ featured_post.content.rendered | excerpt(150) | safe }}</p>
-          <a class="posts__featured__comment-count comment-count" href="{{ meta.url }}/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}#commento"></a>
+          <a class="posts__featured__comment-count comment-count" href="{{ meta.url }}/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}/#commento"></a>
           <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}" class="button posts__featured__button read-more">Read more</a>
         </div>
       </div>
@@ -33,7 +33,7 @@ header_color: white
         <time class="posts__item__date" datetime="{{ post.date }}">{{ post.date | dateToFormat('DDD') }}</time>
         <a href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}"><h2 class="posts__item__title">{{ post.title.rendered | safe }}</h2></a>
         <div class="posts__item__excerpt">{{ post.excerpt.rendered | excerpt(120)  | striptags() | safe }}</div>
-        <a class="comment-count posts__item__comment-count" href="{{ meta.url }}/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}#commento"></a>
+        <a class="comment-count posts__item__comment-count" href="{{ meta.url }}/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}/#commento"></a>
         <a href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}" class="button">Read more</a>
       </div>
 
