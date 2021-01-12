@@ -7,8 +7,6 @@ header_color: white
 {% set id = blogpost.id %}
 {% set author = blogpost._embedded.author[0] %}
 {% set featured_image = blogpost._embedded['wp:featuredmedia'][0] %}
-{% set image = featured_image.media_details.sizes.medium.source_url %}
-
 <div class="container post">
 
   <div class="post__header">
@@ -47,10 +45,8 @@ header_color: white
 
     <article class="post__content">
       {{ blogpost.content.rendered | safe }}
-
-
-        <script defer src="https://commento.jdp.org.uk/js/commento.js"></script>
-        <div id="commento"></div>
+      <script defer src="https://commento.jdp.org.uk/js/commento.js"></script>
+      <div id="commento"></div>
     </article>
   </div>
 

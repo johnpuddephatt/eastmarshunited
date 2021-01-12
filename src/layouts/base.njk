@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ meta.title }}</title>
-
+    {% include "meta.njk" %}
     <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}">
     <script defer type="text/javascript" src="{{ '/assets/scripts/main.js' | url }}"></script>
-    {% include "meta.njk" %}
 </head>
 <body class="{% if eleventyNavigation.key == 'Home' %} body__home{% endif %}">
     <div hidden>{% iconsprite %}</div>
