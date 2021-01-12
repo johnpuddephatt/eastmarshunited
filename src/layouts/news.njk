@@ -2,24 +2,26 @@
 layout: base
 header_color: white
 ---
+<script defer src="https://commento.jdp.org.uk/js/count.js"></script>
 <div class="posts">
 
   {% if pagination.pageNumber == 0 %}
     {% set featured_post = paginated_posts | first %}
-      <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}" class="posts__featured">
-        <div class="container posts__featured__container">
-          {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
-          {% if featured_post_image %}
-            {% wp_image featured_post_image, 'posts__featured__image' %}
-          {% endif %}
-          <div class="posts__featured__text">
-            <time class="posts__featured__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
-            <h2 class="posts__featured__title">{{ featured_post.title.rendered | safe }}</h2>
-            <p>{{ featured_post.content.rendered | excerpt(150) | safe }}</p>
-            <span class="button posts__featured__button read-more">Read more</span>
-          </div>
+
+    <div class="posts__featured">
+      <div class="container posts__featured__container">
+        {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
+        {% if featured_post_image %}
+          {% wp_image featured_post_image, 'posts__featured__image' %}
+        {% endif %}
+        <div class="posts__featured__text">
+          <time class="posts__featured__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
+          <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}"><h2 class="posts__featured__title">{{ featured_post.title.rendered | safe }}</h2></a>
+          <p>{{ featured_post.content.rendered | excerpt(150) | safe }}</p>
+          <a class="posts__featured__comment-count comment-count" href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}#commento"></a>
+          <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}" class="button posts__featured__button read-more">Read more</a>
         </div>
-      </a>
+      </div>
     </div>
 
     {% set paginated_posts = paginated_posts.slice(1) %}
@@ -27,12 +29,14 @@ header_color: white
 
   <div class="container posts__container">
     {%- for post in paginated_posts -%}
-      <a class="posts__item" href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}">
+      <div class="posts__item">
         <time class="posts__item__date" datetime="{{ post.date }}">{{ post.date | dateToFormat('DDD') }}</time>
-        <h2 class="posts__item__title">{{ post.title.rendered | safe }}</h2>
+        <a href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}"><h2 class="posts__item__title">{{ post.title.rendered | safe }}</h2></a>
         <div class="posts__item__excerpt">{{ post.excerpt.rendered | excerpt(120)  | striptags() | safe }}</div>
-        <span class="button">Read more</span>
-      </a>
+        <a class="comment-count posts__item__comment-count" href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}#commento"></a>
+        <a href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}" class="button">Read more</a>
+      </div>
+
     {%- endfor -%}
 
     <nav aria-labelledby="posts-pagination" class="posts__pagination">

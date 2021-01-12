@@ -39,11 +39,15 @@
 
   &__title {
     margin-top: $spacing;
-    margin-bottom: $spacing/2;
+    margin-bottom: $spacing/4;
   }
 
   &__excerpt {
     font-size: ms(1);
+  }
+
+  &__comment-count {
+    margin-top: $spacing/4;
   }
 
   &__featured-image {

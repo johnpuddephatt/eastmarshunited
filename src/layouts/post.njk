@@ -2,6 +2,8 @@
 layout: base
 header_color: white
 ---
+<script defer src="https://commento.jdp.org.uk/js/count.js"></script>
+
 {% set title = blogpost.title.rendered %}
 {% set commentStatus = blogpost.comment_status %}
 {% set id = blogpost.id %}
@@ -19,11 +21,12 @@ header_color: white
     {% if blogpost.excerpt.rendered %}
       {% if not 'Continue reading' in blogpost.excerpt.rendered %}
         <div class="post__excerpt">
-
           {{ blogpost.excerpt.rendered | safe }}
         </div>
       {% endif %}
     {% endif %}
+
+    <a class="comment-count post__comment-count" href="#commento"></a>
 
     {% if featured_image %}
       <div class="post__featured-image">

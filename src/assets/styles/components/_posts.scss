@@ -2,6 +2,15 @@
   &__featured {
     text-decoration: none;
 
+    a {
+      text-decoration: none;
+    }
+
+    &__comment-count {
+      margin-top: $spacing/4;
+      color: #fff;
+    }
+
     &__container {
       display: flex;
       flex-direction: column;
@@ -48,6 +57,7 @@
     &__title {
       font-size: ms(2);
       margin-bottom: $spacing/2;
+      color: #fff;
 
       @include orientation(landscape) {
         font-size: ms(4);
@@ -69,6 +79,14 @@
     padding-bottom: 2 * $spacing;
     color: inherit;
     border-bottom: 1px solid $brand-blue;
+
+    &__comment-count {
+      margin-top: $spacing/4;
+    }
+
+    a {
+      text-decoration: none;
+    }
 
     .button {
       margin-top: $spacing/2;
