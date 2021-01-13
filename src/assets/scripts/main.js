@@ -4,6 +4,12 @@ import 'focus-visible'
 // Internal Modules
 import './modules/nav'
 import comment from './modules/comments';
+var SimpleLightbox = require('simple-lightbox');
+
+var lightbox = new SimpleLightbox({
+  elements: '.tiled-gallery img',
+  urlAttribute: 'data-large-file', // where to expect large image
+});
 
 comment();
 
