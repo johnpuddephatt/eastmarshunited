@@ -1,0 +1,15 @@
+.embed-soundcloud {
+  padding-top: 56.25%;
+  margin: $spacing;
+  position: relative;
+
+  iframe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
