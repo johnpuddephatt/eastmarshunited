@@ -17,7 +17,7 @@ header_color: white
         <div class="posts__featured__text">
           <time class="posts__featured__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
           <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}"><h2 class="posts__featured__title">{{ featured_post.title.rendered | safe }}</h2></a>
-          <p>{{ featured_post.content.rendered | excerpt(150) | safe }}</p>
+          <p>{{ featured_post.excerpt.rendered | excerpt(120) | striptags() | safe }}</p>
           <a class="posts__featured__comment-count comment-count" href="{{ meta.url }}/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}/#commento"></a>
           <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}" class="button posts__featured__button read-more">Read more</a>
         </div>
