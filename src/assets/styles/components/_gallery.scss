@@ -1,0 +1,21 @@
+.tiled-gallery {
+  margin: $spacing 0;
+}
+
+.gallery-row {
+  display: flex;
+  width: 100% !important;
+}
+
+.gallery-group {
+  width: auto !important;
+  height: auto !important;
+  flex: 1;
+
+  img {
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: content-box;
+    border: $spacing/4 solid white;
+  }
+}
