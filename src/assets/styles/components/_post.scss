@@ -93,6 +93,15 @@
       color: $brand-blue;
     }
 
+    hr {
+      max-width: map-get($breakpoints, 'sm');
+      margin: $spacing;
+    }
+
+    div + div  {
+      margin-top: $spacing/2;
+    }
+
     p {
       margin-bottom: $spacing/2;
     }
