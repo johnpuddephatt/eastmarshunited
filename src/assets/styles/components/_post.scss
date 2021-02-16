@@ -88,14 +88,15 @@
     }
 
     blockquote {
+      margin: 2 * $spacing $spacing;
       font-weight: bold;
       font-style: italic;
       color: $brand-blue;
     }
 
     hr {
-      max-width: map-get($breakpoints, 'sm');
-      margin: $spacing;
+      max-width: 15em;
+      margin: $spacing auto;
     }
 
     div + div  {
