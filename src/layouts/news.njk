@@ -3,6 +3,15 @@ layout: base
 header_color: white
 ---
 <script defer src="https://commento.jdp.org.uk/js/count.js"></script>
+
+<div class="container">
+  <form class="search-form align-right" method="get" action="/search/">
+    <input placeholder="Search news" class="search-form--input" x-bind:value="searchTerm" type="text" name="search">
+    <input type="hidden" name="type" value="post">
+    <input class="button search-form--button" type="submit" value="search">
+  </form>
+</div>
+
 <div class="posts">
 
   {% if pagination.pageNumber == 0 %}

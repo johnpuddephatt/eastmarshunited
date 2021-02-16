@@ -1,0 +1,53 @@
+---
+layout: base
+header_color: white
+---
+<div class="container container__narrow page">
+  <h1>Search results</h1>
+
+  <div x-data="searchResults()" x-init="fetchResults()">
+    <form class="search-form" method="get" action="/search/">
+      <input class="search-form--input" x-bind:value="searchTerm" type="text" name="search">
+      <input type="hidden" name="type" value="post">
+      <input class="button search-form--button" type="submit" value="search">
+    </form>
+    <div class="search-results">
+      <template x-if="isLoading">
+        <p>Searching...</p>
+      </template>
+      <template x-if="!isLoading">
+        <template x-for="result in results" :key="result.id">
+          <a class="search-results--item" x-bind:href="result.url" x-html="result.title"></a>
+        </template>
+        <template x-if="!results.length">
+          <p>No results found.</p>
+        </template>
+      </template>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+
+<script>
+function searchResults() {
+  return {
+    number: 4,
+    results: null,
+    isLoading: false,
+    fetchResults() {
+      this.isLoading = true;
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      this.searchTerm = urlParams.get('search')
+      fetch(`https://public-api.wordpress.com/wp/v2/sites/eastmarshunited.wordpress.com/search?search=${this.searchTerm}&type=post`)
+        .then(res => res.json())
+        .then(data => {
+          this.isLoading = false;
+          this.results = data;
+        });
+    }
+  };
+}
+</script>

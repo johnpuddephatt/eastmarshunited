@@ -82,6 +82,17 @@
       padding-right: 2 * $spacing;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    blockquote {
+      font-weight: bold;
+      font-style: italic;
+      color: $brand-blue;
+    }
+
     p {
       margin-bottom: $spacing/2;
     }
