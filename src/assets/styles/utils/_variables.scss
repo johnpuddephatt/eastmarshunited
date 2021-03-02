@@ -1,7 +1,6 @@
 //--------------------
 // SCSS VARIABLES
 //--------------------
-
 // Grid breakpoints
 //
 // Define the minimum and maximum dimensions at which your layout will change,
@@ -23,7 +22,6 @@ $modularscale: (
 $container-max-width: 1200px;
 
 // Z-Index Stack
-//
 // Control the order of layers in the application
 $z-layers: (
     'modal': 999,

@@ -2,6 +2,51 @@
 // SCSS MIXINS
 //--------------------
 
+%content {
+
+  ul {
+    list-style-type: disc;
+    margin-left: $spacing;
+    margin-bottom: $spacing/2;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    margin: 2 * $spacing $spacing;
+    font-weight: bold;
+    font-style: italic;
+    color: $brand-blue;
+  }
+
+  hr {
+    max-width: 15em;
+    margin: $spacing auto;
+  }
+
+  div + div  {
+    margin-top: $spacing/2;
+  }
+
+  p {
+    margin-bottom: $spacing/2;
+  }
+
+  .wp-block-image {
+    margin-top: $spacing/2;
+    margin-bottom: $spacing;
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
 @mixin slide_colorables($color) {
 
   text-decoration-color: transparentize($color,0.5);

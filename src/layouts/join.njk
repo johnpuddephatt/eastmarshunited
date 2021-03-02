@@ -1,0 +1,63 @@
+---
+layout: base
+---
+
+<div class="join__hero">
+  <div class="container">
+    <h1 class="join__hero__title">{{ title }}</h1>
+    <div class="join__hero__subtitle">{{ subtitle  | markdown | safe }}</div>
+  </div>
+</div>
+
+<div class="join__intro">
+  <div class="container">
+    {{ intro | markdown | safe}}
+  </div>
+</div>
+
+<div class="join__benefits">
+  <div class="container">
+    {% for benefit in benefits %}
+      <div class="join__benefits__item">
+        <div class="join__benefits__item__text">
+          <h2 class="join__benefits__item__title">
+            <span>{{ benefit.title }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0" y="0" viewBox="0 0 101.739 101.739" xml:space="preserve" width="101.739" height="101.739"><style type="text/css" id="style833">.st10{fill:none;stroke:#b3b3b5;stroke-width:8.2591;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style><g id="g913" transform="translate(-1187.12 -798.48)"><path class="st10" d="M1284.73 845.08v4.3c-.01 25.81-20.95 46.73-46.77 46.71-25.81-.01-46.73-20.95-46.71-46.77.01-25.81 20.95-46.73 46.77-46.71 6.55 0 13.02 1.38 19 4.05" id="path909"/><path class="st10" id="polyline911" d="M1284.73 811.99l-46.74 46.79-14.02-14.02"/></g></svg>
+          </h2>
+          <p class="join__benefits__item__details">{{ benefit.details }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="join__signup">
+  <div class="container container__narrow">
+    <h2 class="join__signup__title">{{ signup.title }}</h2>
+    <p class="join__signup__subtitle">{{ signup.details }}</p>
+    <div class="join__signup__links">
+      {% for option in signup.options %}
+        <a href="{{ option.link }}" class="join__signup__link">
+          <h2 class="join__signup__link__title">{{ option.title | markdown | safe }}</h2>
+          <p class="join__signup__link__details">{{ option.details }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<div class="join__more">
+  <div class="container">
+    <h2 class="join__more__title">{{ more.title }}</h2>
+    <p class="join__more__subtitle">{{ signup.details }}</p>
+  </div>
+  <div class="container">
+    {% for item in more.questions %}
+      <details  class="join__more__item">
+        <summary class="join__more__item__question">{{ item.question }}</summary>
+        <div class="join__more__item__answer">{{ item.answer | markdown | safe }}</div>
+      </details>
+    {% endfor %}
+  </div>
+</div>

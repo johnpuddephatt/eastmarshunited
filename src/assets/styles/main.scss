@@ -7,8 +7,8 @@
 // UTILITIES
 //--------------------
 @import 'utils/functions';
-@import 'utils/mixins';
 @import 'utils/variables';
+@import 'utils/mixins';
 @import 'utils/animations';
 @import 'utils/a11y-color';
 
@@ -49,6 +49,7 @@
 @import 'components/home/podcast';
 
 @import 'components/about';
+@import 'components/join';
 @import 'components/posts';
 @import 'components/post';
 @import 'components/comments';

@@ -82,41 +82,7 @@
       padding-right: 2 * $spacing;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    blockquote {
-      margin: 2 * $spacing $spacing;
-      font-weight: bold;
-      font-style: italic;
-      color: $brand-blue;
-    }
-
-    hr {
-      max-width: 15em;
-      margin: $spacing auto;
-    }
-
-    div + div  {
-      margin-top: $spacing/2;
-    }
-
-    p {
-      margin-bottom: $spacing/2;
-    }
-
-    .wp-block-image {
-      margin-top: $spacing/2;
-      margin-bottom: $spacing;
-
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-    }
+    @extend %content;
   }
 
   &__byline {
