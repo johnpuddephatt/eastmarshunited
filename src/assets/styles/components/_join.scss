@@ -8,6 +8,29 @@
     flex-direction: column;
     justify-content: flex-end;
 
+    @include orientation(portrait) {
+      min-height: calc(90vh - #{2.75 * $spacing});
+    }
+
+    &::after {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 0;
+      @include orientation(portrait) {
+        top: 2 * $spacing;
+      }
+
+      right: -2 * $spacing;
+      height: calc(1.226 * (70vh + #{3.37 * $spacing}));
+      width: 300%;
+      display: block;
+      background-image: url(/assets/images/join-lines.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: top right;
+    }
+
     &__title {
       font-size: ms(4);
     }
@@ -25,15 +48,31 @@
 
     .container {
       position: relative;
-      padding-bottom: 2 * $spacing;
+      padding-bottom: 4 * $spacing;
 
       > * {
-        max-width: map-get($breakpoints, md);
+        width: calc(#{map-get($breakpoints, md)} - #{$spacing});
+        max-width: 40%;
       }
 
       @include orientation(portrait) {
-        min-height: calc(90vh - #{2.75 * $spacing});
+        text-align: right;
+        padding-right: 0;
+        padding-left: 3 * $spacing;
+        padding-bottom: $spacing;
+
+        .join__hero__subtitle::before {
+          margin-left: auto;
+        }
+
+        > * {
+          margin-left: auto;
+          width: auto;
+          max-width: calc(#{map-get($breakpoints, sm)} - #{2 *   $spacing});
+        }
       }
+
+
     }
   }
 

@@ -122,6 +122,14 @@
   }
 }
 
+@mixin join-image($width) {
+  &::after {
+    width: $width * 120vw;
+    transform: translate(-43.5%, (-68.42vw * $width));
+  }
+}
+
+
 @mixin overline($color: #fff) {
   &::before {
     display: block;

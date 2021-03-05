@@ -3,12 +3,17 @@
     color: #FFF;
     font-size: ms(-1);
 
+    a {
+      color: $gray-lightest;
+      text-decoration-color: $gray;
+    }
+
     &__inner {
         height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding: 2 * $spacing 0;
+        padding: 2 * $spacing 0 1.5 * $spacing;
 
         @include orientation(landscape) {
           height: auto;
@@ -51,15 +56,20 @@
             margin-bottom: $spacing/2;
         }
 
-         &::before {
-           content: '';
-           display: block;
-           width: 2 * $spacing;
-           height: $spacing/6;
-           background-color: #fff;
-           margin-bottom: $spacing/2;
-         }
-       }
+        &:first-child {
+          &::before {
+            content: '';
+            display: block;
+            width: 2 * $spacing;
+            height: $spacing/6;
+            background-color: #fff;
+            margin-bottom: $spacing/2;
+          }
+        }
+        &:not(:first-child) {
+          font-size: ms(-2);
+        }
+      }
     }
 
     &__links {
