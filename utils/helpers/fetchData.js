@@ -8,11 +8,10 @@ const fetchAll = require('./fetchAll.js');
 module.exports = async function fetchData(type, endPoint) {
 	const cache = flatcache.load(type, path.resolve('./src/_datacache'));
 	const key = getCacheKey();
-	// const cachedData = cache.getKey(key);
-	const cachedData = false;
+	const cachedData = cache.getKey(key);
 
 	// Fetch again if we don't have cache.
-	if (!cachedData) {
+	if (process.env.ELEVENTY_ENV != 'development' || !cachedData) {
 
 		// Get number of pages.
 		const numPages = await getNumPages(endPoint);

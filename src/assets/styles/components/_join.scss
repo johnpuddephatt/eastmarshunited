@@ -79,14 +79,44 @@
   &__intro {
     padding-top: 3 * $spacing;
 
+    @include mq(lg) {
+      padding-bottom: 3 * $spacing;
+    }
+
     .container {
-      @include mq(xl) {
-        position: relative;
+      position: relative;
+
+      img {
+        display: block;
+        max-width: 100%;
+        @include mq-down(lg) {
+          margin-left: auto;
+          width: 100%;
+          max-width: map-get($breakpoints, sm);
+          height: 80vw;
+
+          object-fit: cover;
+          object-position: 40% center;
+        }
+
+      }
+
+      @include mq(lg) {
         > * {
           max-width: 50%;
         }
+        display: flex;
+        flex-direction: row;
+
+        img {
+          position: absolute;
+          right: -8 * $spacing;
+          top: -5 * $spacing;
+        }
       }
     }
+
+
 
     em {
       @include emphasis($brand-yellow);
@@ -104,6 +134,7 @@
   }
 
   &__benefits {
+
     .container {
       padding-top: 2 * $spacing;
       padding-bottom: 3 * $spacing;
@@ -132,9 +163,6 @@
 
       @include orientation(portrait) {
         max-width: none;
-        &:nth-child(3) {
-          display: none;
-        }
       }
 
       @include orientation(landscape) {
@@ -150,7 +178,7 @@
       &__title {
         font-weight: 700;
         font-size: ms(1);
-        margin-bottom: 0;
+        margin-bottom: $spacing/4;
         color: $brand-blue;
         display: flex;
 
@@ -175,6 +203,7 @@
 
   &__signup {
     margin-bottom: 3 * $spacing;
+    position: relative;
 
     &::before {
       content: '';
@@ -184,16 +213,16 @@
       left: -1em;
       right: -1em;
       top: 50%;
-      transform: translateY(-90%);
+      transform: translateY(-70%);
       padding-top: 140%;
-      background-image: url('/assets/images/join-line.svg');
+      background-image: url('/assets/images/join-line-2.svg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: 200%;
 
       @include orientation(landscape) {
         padding-top: 70%;
-        transform: translateY(-25%);
+        transform: translateY(-35%);
         background-size: contain;
       }
     }
