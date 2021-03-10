@@ -50,7 +50,9 @@ module.exports = function (config) {
 
     // Collections
     config.addCollection('events', collection => {
-      return collection.getFilteredByGlob('./src/events/**');
+      return collection.getFilteredByGlob('./src/events/**').sort(function(a, b) {
+        return (b.data.date) - (a.data.date);
+      });;
     });
 
     // Layouts
