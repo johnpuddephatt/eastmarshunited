@@ -1,0 +1,27 @@
+---
+layout: base
+
+---
+
+<div class="container">
+
+  <div class="post__header">
+    <div class="post__breadcrumb">
+    <a href="/">Home</a> > <a href="/news/">News</a>
+    </div>
+
+    <h1 class="post__title">{{ title | safe }}</h1>
+
+    {{ content | markdown | safe}}
+
+
+
+  </div>
+
+  <div class="post__body">
+
+    <article class="post__content">
+    </article>
+  </div>
+
+<div>
