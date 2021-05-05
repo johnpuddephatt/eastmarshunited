@@ -18,6 +18,10 @@
         text-transform: lowercase;
         color: $brand-blue;
         font-size: ms(4);
+
+        &.button {
+          line-height: 1.25;
+        }
     }
 
     &__toggle {
