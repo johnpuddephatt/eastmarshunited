@@ -4,11 +4,11 @@ module.exports = {
         <use xlink:href="#icon-${name}"></use>
       </svg>`
     },
-    wp_image: function(image, className, sizes) {
+    wp_image: function(image, className, sizes, ratio) {
       let srcset = '';
-      let sizeNames = ['medium','large','full'];
+      let sizeNames = ['medium','large'];
       for(var i = 0; i < sizeNames.length; i++) {
-        srcset += `${ image.media_details.sizes[sizeNames[i]].source_url } ${ image.media_details.sizes[sizeNames[i]].width }w`;
+        srcset += `${ image.media_details.sizes[sizeNames[i]].source_url }${ratio ?  '&h=' + Math.round(image.media_details.sizes[sizeNames[i]].width / ratio) + '&crop=1': ''} ${ image.media_details.sizes[sizeNames[i]].width }w`;
         if(sizeNames.length - i > 1) {
           srcset += ','
         }
@@ -16,7 +16,7 @@ module.exports = {
       return `<img
         alt="${ image.alt_text }"
         class="${ className }"
-        src="${ image.media_details.sizes.large.source_url }"
+        src="${ image.media_details.sizes.large.source_url }${ratio ?  '&h=' + Math.round(image.media_details.sizes.large.width / ratio) + '&crop=1': ''}"
         srcset="${ srcset }"
         sizes="${ sizes }" >`
     },

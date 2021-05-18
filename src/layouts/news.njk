@@ -21,7 +21,7 @@ header_color: white
       <div class="container posts__featured__container">
         {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
         {% if featured_post_image %}
-          {% wp_image featured_post_image, 'posts__featured__image' %}
+          {% wp_image featured_post_image, 'posts__featured__image', '(min-width: 1330px) 420px, (orientation: portrait: 95vw), 40vw', 1.5 %}
         {% endif %}
         <div class="posts__featured__text">
           <time class="posts__featured__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
