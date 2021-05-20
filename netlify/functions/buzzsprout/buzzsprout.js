@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+const fetch = require('node-fetch');
 
 exports.handler = async (event, context, callback) => {
     const behanceEndpoint = `https://www.buzzsprout.com/api/1764181/episodes.json?api_token=76a69249f3fc975766b5faf5d4b449c7`
