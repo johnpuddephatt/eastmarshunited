@@ -4,3 +4,5 @@ dist
 .cache
 .tmp
 src/_datacache
+# Local Netlify folder
+.netlify

@@ -1,0 +1,12 @@
+---
+layout: base
+---
+<section class="section__home-thinking" id="project-videos" x-data="buzzsprout()" x-init="fetchPlaylist()">
+  <template x-if="podcasts">
+    <div class="container">
+      <template x-for="podcast in podcasts">
+        <p x-text="podcast.title"></p>
+      </template>
+    </div>
+  </template>
+</section>
