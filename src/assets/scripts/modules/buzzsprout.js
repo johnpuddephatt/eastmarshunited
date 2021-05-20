@@ -5,7 +5,7 @@ window.buzzsprout = function() {
 
     fetchPlaylist() {
       this.isLoading = true;
-      fetch(`https://eastmarshunited.org/netlify/functions/buzzsprout`)
+      fetch(`https://eastmarshunited.org/.netlify/functions/buzzsprout`)
         .then(res => res.json())
         .then(data => {
           this.isLoading = false;
