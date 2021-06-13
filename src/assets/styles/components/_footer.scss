@@ -1,11 +1,11 @@
 .footer {
     background-color: $gray-darkest;
-    color: #FFF;
+    color: #fff;
     font-size: ms(-1);
 
     a {
-      color: $gray-lightest;
-      text-decoration-color: $gray;
+        color: $gray-lightest;
+        text-decoration-color: $gray;
     }
 
     &__inner {
@@ -16,117 +16,121 @@
         padding: 2 * $spacing 0 1.5 * $spacing;
 
         @include orientation(landscape) {
-          height: auto;
-          padding: 2 * $spacing 0;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: flex-start;
+            height: auto;
+            padding: 2 * $spacing 0;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
     }
 
     &__logo {
-      margin-bottom: $spacing;
-
-      @include orientation(landscape) {
-        margin-bottom: 0;
-        margin-right: 0;
-      }
-
-      .icon--logo {
-        color: white;
-        width: 4 * $spacing;
-        height: auto;
-
-        @include orientation(landscape) {
-          width: 3 * $spacing;
-        }
-      }
-    }
-
-    &__about {
-      @include orientation(landscape) {
-        flex: 0 0 30%;
-        margin-left: $spacing;
-      }
-
-      p {
         margin-bottom: $spacing;
 
         @include orientation(landscape) {
-            margin-bottom: $spacing/2;
+            margin-bottom: 0;
+            margin-right: 0;
         }
 
-        &:first-child {
-          &::before {
-            content: '';
-            display: block;
-            width: 2 * $spacing;
-            height: $spacing/6;
-            background-color: #fff;
-            margin-bottom: $spacing/2;
-          }
+        .icon--logo {
+            color: white;
+            width: 4 * $spacing;
+            height: auto;
+
+            @include orientation(landscape) {
+                width: 3 * $spacing;
+            }
         }
-        &:not(:first-child) {
-          font-size: ms(-2);
+    }
+
+    &__about {
+        @include orientation(landscape) {
+            flex: 0 0 30%;
+            margin-left: $spacing;
         }
-      }
+
+        p {
+            margin-bottom: $spacing;
+
+            @include orientation(landscape) {
+                margin-bottom: $spacing/2;
+            }
+
+            &:first-child {
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 2 * $spacing;
+                    height: $spacing/6;
+                    background-color: #fff;
+                    margin-bottom: $spacing/2;
+                }
+            }
+            &:not(:first-child) {
+                font-size: ms(-2);
+            }
+        }
     }
 
     &__links {
-      margin-top: $spacing;
-      column-count: 2;
-      column-gap: $spacing;
-      margin-right: 35vw;
+        margin-top: $spacing;
+        column-count: 2;
+        column-gap: $spacing;
+        margin-right: 35vw;
 
-      @include orientation(landscape) {
-        flex: 0 0 15%;
-        margin-right: 0;
-        margin-left: 2 * $spacing;
-        margin-top: $spacing/2;
-      }
-
-      a {
-        display: block;
-        text-transform: lowercase;
-        line-height: 2 * $heading-line-height;
-        color: $gray;
-        text-decoration: none;
-
-        &:hover {
-          color: #fff;
+        @include orientation(landscape) {
+            flex: 0 0 15%;
+            margin-right: 0;
+            margin-left: 2 * $spacing;
+            margin-top: $spacing/2;
         }
-      }
+
+        a {
+            display: block;
+            text-transform: lowercase;
+            line-height: 2 * $heading-line-height;
+            color: $gray;
+            text-decoration: none;
+
+            &:hover {
+                color: #fff;
+            }
+        }
     }
 
     &__logos {
-      margin-top: 2 * $spacing;
+        margin-top: 2 * $spacing;
 
-      @include orientation(landscape) {
-        margin-top: $spacing/1.5;
-        padding-left: $spacing;
-        margin-left: auto;
-        flex: 0 0 25%;
+        @include orientation(landscape) {
+            margin-top: $spacing/1.5;
+            padding-left: $spacing;
+            margin-left: auto;
+            flex: 0 0 25%;
+            justify-content: center;
+        }
 
-      }
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: $spacing/2;
 
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+        a {
+            flex: 1 1 40%;
+            max-width: 3.5 * $spacing;
+        }
 
-      a {
-        flex: 1 1 50%;
-        max-width: 4 * $spacing;
+        svg {
+            color: $gray-light;
 
-         + a {
-            margin-left: $spacing/2;
-         }
-      }
+            width: 100%;
+            height: auto;
+        }
 
-      svg {
-        color: $gray-light;
-
-        width: 100%;
-        height: auto;
-      }
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }

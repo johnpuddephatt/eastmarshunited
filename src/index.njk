@@ -36,7 +36,7 @@ eleventyNavigation:
           {% if featured_post_image %}
             {% wp_image featured_post_image, 'news__post--featured__image', '(min-width: 1330px) 420px, (orientation: portrait: 95vw), 40vw', 1.5 %}
           {% else %}
-            No image
+            <img class="news__post--featured__image" src="/assets/images/placeholder.png" />
           {% endif %}
         <div class="news__post__text">
           <h2 class="news__post--featured__title">{{ featured_post.title.rendered | safe }}</h2>
@@ -55,7 +55,7 @@ eleventyNavigation:
             {% if post_image %}
               {% wp_image post_image, 'news__post__image', "6em" %}
             {% else %}
-              No image
+              <img class="news__post__image" src="/assets/images/placeholder.png" />
             {% endif %}
             <div class="news__post__text">
               <h2 class="news__post__title">{{ post.title.rendered | safe }}</h2>
@@ -179,9 +179,51 @@ eleventyNavigation:
 <div class="podcast">
   <div class="container podcast__container">
     <div class="podcast__text">
-      <h2 class="podcast__title">The East Marsh Chronicles</h2>
-      <p>Talking to residents about the things that matter to us most.</p>
-      <button disabled class="podcast__button">Coming soon</button>
+      <h2 class="podcast__title">East Marshian Chronicles</h2>
+      <p>Podcasting from the edge of things, on Grimsby’s historic East Marsh.</p>
+      <section class="section__home-thinking" id="project-videos" x-data="buzzsprout()" x-init="fetchPlaylist()">
+  <audio hidden :src="currentTrack" x-ref="player" id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+    Sorry, your browser does not support HTML5 audio.
+  </audio>
+
+  <template x-if="podcasts">
+  <div class="podcast--rows">
+      <template x-for="podcast in podcasts">
+        
+          <p class="podcast--row" :class="podcast.episode_number ? 'playable' : ''" @click="toggleAudio($event.currentTarget.dataset.audio)" :data-audio="podcast.audio_url">
+            <template x-if="dateInFuture(podcast.published_at)">
+              <svg xmlns="http://www.w3.org/2000/svg" class="podcast--row--icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause-circle"></svg>
+            </template>
+            <template x-if="!dateInFuture(podcast.published_at) && currentTrack == podcast.audio_url && isPlaying">
+              <svg xmlns="http://www.w3.org/2000/svg" class="podcast--row--icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause-circle"><circle cx="12" cy="12" r="10"></circle><line x1="10" y1="15" x2="10" y2="9"></line><line x1="14" y1="15" x2="14" y2="9"></line></svg>
+            </template>
+
+            <template x-if="!dateInFuture(podcast.published_at) && (currentTrack != podcast.audio_url || !isPlaying)">
+              <svg xmlns="http://www.w3.org/2000/svg" class="podcast--row--icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </template>
+            <template x-if="podcast.episode_number">
+              <span class="podcast--number" x-text="podcast.episode_number"></span>
+            </template>
+            <template x-if="!podcast.episode_number">
+              <span class="podcast--coming-soon">Coming soon</span>
+            </template>
+
+            <span class="podcast--row--title" x-text="podcast.title"></span>
+            <template x-if="podcast.episode_number">
+            <span class="podcast--time" x-text="getTime(podcast.duration)"></span>
+            </template> 
+          </p>
+        
+      </template>
+      </div>
+      
+  </template>
+  <div class="podcast--listen">Listen on:&nbsp; 
+          <a class="button button--small button--inverted" target="_blank" href="https://podcasts.apple.com/us/podcast/east-marshian-chronicles/id1566896984">Apple Podcasts</a>
+          <a class="button button--small button--inverted" target="_blank" href="https://open.spotify.com/show/75QEUxhqyBX11W45z1Sf8f">Spotify</a>
+          <a class="button button--small button--inverted" target="_blank" href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xNzY0MTgxLnJzcw==">Google Podcasts</a>
+      </div>
+</section>
     </div>
     <img src="/assets/images/billy.png" width="420" height="692" alt="Photo of Billy Dasein!" class="podcast__image" loading="lazy">
     {% icon 'logo-shape', 2028, 1186  %}

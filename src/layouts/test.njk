@@ -1,12 +1,39 @@
 ---
 layout: base
 ---
+
+
+
 <section class="section__home-thinking" id="project-videos" x-data="buzzsprout()" x-init="fetchPlaylist()">
+  <audio hidden :src="currentTrack" x-ref="player" id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+    Sorry, your browser does not support HTML5 audio.
+  </audio>
+
   <template x-if="podcasts">
     <div class="container">
       <template x-for="podcast in podcasts">
-        <p x-text="podcast.title"></p>
+        <div>
+          <p @click="toggleAudio($event.currentTarget.dataset.audio)" :data-audio="podcast.audio_url">
+            <template x-if="dateInFuture(podcast.published_at)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause-circle"></svg>
+            </template>
+            <template x-if="!dateInFuture(podcast.published_at) && currentTrack == podcast.audio_url && isPlaying">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause-circle"><circle cx="12" cy="12" r="10"></circle><line x1="10" y1="15" x2="10" y2="9"></line><line x1="14" y1="15" x2="14" y2="9"></line></svg>
+            </template>
+
+            <template x-if="!dateInFuture(podcast.published_at) && (currentTrack != podcast.audio_url || !isPlaying)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </template>
+
+            <span x-text="podcast.title"></span>
+            <template x-if="dateInFuture(podcast.published_at)">
+              <span>Coming soon</span>
+            </template>
+          </p>
+        </div>
       </template>
     </div>
   </template>
 </section>
+
+

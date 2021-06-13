@@ -1,18 +1,29 @@
 .button {
-  @include button-reset;
+    @include button-reset;
 
-  font-weight: 700;
-  color: $text-color;
-  text-transform: lowercase;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.7em 1.5em;
-  border-radius: $border-radius;
-  line-height: 1;
+    font-weight: 700;
+    color: $text-color;
+    text-transform: lowercase;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.7em 1.5em;
+    border-radius: $border-radius;
+    line-height: 1;
 
-  @include button-bg($brand-yellow);
+    @include button-bg($brand-yellow);
 
-  &--inverted {
-    color: white;
-  }
+    &--inverted {
+        color: white;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    &--small {
+        font-weight: 500;
+        padding: 0.35em 0.75em;
+        font-size: ms(-2);
+    }
+
+    + .button {
+        margin-left: 0.25em;
+    }
 }
