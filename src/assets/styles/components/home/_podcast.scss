@@ -30,7 +30,8 @@
         font-size: ms(-2);
         color: $gray;
         display: inline-block;
-        margin-left: 0.25rem;
+        padding-left: 0.25rem;
+        margin-left: auto;
     }
 
     &--rows {
@@ -40,14 +41,15 @@
         margin-top: 1em;
 
         @include orientation(portrait) {
-            max-height: 12em;
+            max-height: 10em;
         }
     }
 
     &--row {
         display: flex;
         color: white !important;
-        padding: 1em 0;
+        padding: 0.5em 0;
+        align-items: center;
         border-bottom: 1px dotted $gray;
 
         @include orientation(portrait) {
@@ -138,7 +140,7 @@
                 max-width: none;
                 height: 130vw;
                 width: auto;
-                top: -6 * $spacing;
+                top: -6rem;
                 bottom: auto;
                 transform-origin: top left;
                 transform: rotate(-75deg) translate(-65.5%, 8.5%) scaleX(0.7);
