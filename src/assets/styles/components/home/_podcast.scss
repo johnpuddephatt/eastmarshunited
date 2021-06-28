@@ -48,7 +48,7 @@
     &--row {
         display: flex;
         color: white !important;
-        padding: 0.5em 0;
+        padding: 0.5em;
         align-items: center;
         border-bottom: 1px dotted $gray;
 
@@ -136,7 +136,7 @@
             color: $gray-darkest;
 
             @include orientation(portrait) {
-                left: -$spacing/2;
+                left: -$spacing;
                 max-width: none;
                 height: 130vw;
                 width: auto;
