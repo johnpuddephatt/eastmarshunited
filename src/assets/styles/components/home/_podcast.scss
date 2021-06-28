@@ -38,13 +38,25 @@
         max-height: 9em;
         overflow-y: auto;
         margin-top: 1em;
+
+        @include orientation(portrait) {
+            max-height: 12em;
+        }
     }
 
     &--row {
         display: flex;
         color: white !important;
-        padding: 1em 0.5em;
+        padding: 1em 0;
         border-bottom: 1px dotted $gray;
+
+        @include orientation(portrait) {
+            max-width: calc(100vw - 3.2em);
+        }
+
+        @include mq(lg) {
+            padding: 1em 0.5em;
+        }
 
         &.playable {
             cursor: pointer;
@@ -198,7 +210,10 @@
         margin-top: auto;
         margin-bottom: auto;
         position: relative;
-        padding-left: $spacing;
+
+        @include mq(lg) {
+            padding-left: $spacing;
+        }
 
         @include orientation(landscape) {
             padding-left: 4 * $spacing;
