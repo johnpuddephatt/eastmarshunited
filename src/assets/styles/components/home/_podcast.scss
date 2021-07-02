@@ -36,13 +36,9 @@
 
     &--rows {
         max-width: 25em;
-        max-height: 9em;
+        max-height: 10em;
         overflow-y: auto;
         margin-top: 1em;
-
-        @include orientation(portrait) {
-            max-height: 10em;
-        }
     }
 
     &--row {
