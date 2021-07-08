@@ -11,7 +11,7 @@ window.buzzsprout = function () {
                 .then((res) => res.json())
                 .then((data) => {
                     this.isLoading = false
-                    this.podcasts = data.reverse()
+                    this.podcasts = data
                 })
         },
 

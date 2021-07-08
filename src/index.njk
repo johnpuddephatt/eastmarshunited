@@ -188,7 +188,7 @@ eleventyNavigation:
 
   <template x-if="podcasts">
   <div class="podcast--rows">
-      <template x-for="podcast in podcasts.reverse()">
+      <template x-for="podcast in podcasts">
         
           <p class="podcast--row" :class="podcast.episode_number ? 'playable' : ''" @click="toggleAudio($event.currentTarget.dataset.audio)" :data-audio="podcast.audio_url">
             <template x-if="dateInFuture(podcast.published_at)">
