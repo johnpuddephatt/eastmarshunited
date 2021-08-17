@@ -113,29 +113,24 @@ eleventyNavigation:
   </div>
 {% endif %}
 
-{% if collections.events.length > 0 %}
-  <div class="events">
+<div class="events" x-data="googlecalendar()" x-init="fetchCalendar()">
+  <template x-if="events">
+    <div>
     <h2 class="events__title container">Upcoming events</h2>
     <div class="container events__container">
-      {% for event in collections.events | reverse | array_slice(0,3) %}
+      <template x-for="event in events">
         <div class="events__post">
           <div class="events__post__text">
-            <h2 class="events__post__title">{{ event.data.title }}</h2>
-            <time class="events__post__date" datetime="{{ event.data.date | dateToISO }}">{{ event.date | dateToISO | dateToFormat('DDD') }}</time>
-            <p>{{ event.templateContent | excerpt }}</p>
-            {% if event.data.zoom %}
-              <a target="_blank" href="{{ event.data.zoom }}" class="button read-more">Zoom link</a>
-            {% endif %}
+            <h2 class="events__post__title" x-text="event.summary"></h2>
+            <time class="events__post__date" x-text="new Date(event.start.dateTime).toDateString()"></time>
+            <a target="_blank" x-bind:href="event.htmlLink" class="button read-more">View</a>
           </div>
         </div>
-      {% endfor %}
+      </template>
     </div>
-    <div class="container">
-      <br><br>
-      <a href="https://drive.google.com/drive/folders/1PXUfMcj7TpNjndVFSTaA_EYV9A4O2TOg" target="_blank">View minutes of previous East Marsh United meetings.</a>
     </div>
-  </div>
-{% endif %}
+  </template>
+</div>
 
 <div class="get-involved">
   <div class="container get-involved__container">
