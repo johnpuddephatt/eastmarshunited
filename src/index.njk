@@ -122,7 +122,11 @@ eleventyNavigation:
         <div class="events__post">
           <div class="events__post__text">
             <h2 class="events__post__title" x-text="event.summary"></h2>
-            <time class="events__post__date" x-text="new Date(event.start.dateTime).toDateString()"></time>
+            <template x-if="event.description">
+            <div class="events__post__description" x-html="event.description"></div>
+            </template>
+            <time class="events__post__date"><span x-text="new Date(event.start.dateTime).toDateString()"></span>&nbsp;&nbsp;
+            <span x-text="new Date(event.start.dateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })"></span></time>
             <a target="_blank" x-bind:href="event.htmlLink" class="button read-more">View</a>
           </div>
         </div>
