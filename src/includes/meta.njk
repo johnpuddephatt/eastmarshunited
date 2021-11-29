@@ -5,13 +5,13 @@
 {% if not image %}{%- set image = blogpost._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url -%}{% endif %}
 
 {# General #}
-<title>{% if title | length %}{{ title }} | {% endif %}{{meta.title }}</title>
+<title>{% if title | length %}{{ title | markdownify | striptags }} | {% endif %}{{meta.title }}</title>
 <meta name="description" content="{{ description or meta.description }}">
 <link rel="canonical" href="{{ absolutePageUrl }}">
 
 {# Open Graph #}
 <meta property="og:site_name" content="{{ meta.title }}">
-<meta property="og:title" content="{{ title or meta.title }}">
+<meta property="og:title" content="{{ ( title or meta.title) | markdownify | striptags }}">
 <meta property="og:description" content="{{ description or meta.description }}">
 <meta property="og:url" content="{{ absolutePageUrl }}">
 <meta property="og:locale" content="{{ meta.locale }}">

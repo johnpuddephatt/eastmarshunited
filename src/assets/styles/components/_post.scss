@@ -1,124 +1,133 @@
 .post {
-
-  &::before {
-    content: '';
-    pointer-events: none;
-    position: absolute;
-    left: -1em;
-    right: -1em;
-    bottom: 10 * $spacing;
-    padding-top: 65%;
-    background-image: url('/assets/images/podcast-line.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    transform: rotateY(180deg);
-    transform-origin: center center;
-  }
-
-  margin-top: 2 * $spacing;
-  margin-bottom: 2 * $spacing;
-  padding-bottom: 9 * $spacing;
-
-  &__breadcrumb {
-    font-size: ms(-1);
-    color: $gray;
-    text-transform: lowercase;
-
-    a {
-      text-decoration: none;
-      color: $gray;
-    }
-  }
-
-  &__header {
-    @include mq(md) {
-      width: 60%;
-    }
-  }
-
-  &__title {
-    margin-top: $spacing;
-    margin-bottom: $spacing/4;
-  }
-
-  &__excerpt {
-    font-size: ms(1);
-  }
-
-  &__comment-count {
-    margin-top: $spacing/4;
-  }
-
-  &__featured-image {
-    margin: $spacing 0 0;
-
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-
-  &__body {
-    @include mq(md) {
-      display: flex;
-      flex-direction: row-reverse;
-    }
-  }
-
-  &__content {
-    @include overline($brand-green);
-
     &::before {
-      margin-bottom: $spacing;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        left: -1em;
+        right: -1em;
+        bottom: 10 * $spacing;
+        padding-top: 65%;
+        background-image: url('/assets/images/podcast-line.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transform: rotateY(180deg);
+        transform-origin: center center;
     }
 
-    flex: 0 1 65%;
-    padding-top: $spacing;
+    margin-top: 2 * $spacing;
     margin-bottom: 2 * $spacing;
+    padding-bottom: 9 * $spacing;
 
-    @include mq(md) {
-      padding-right: 2 * $spacing;
+    &__breadcrumb {
+        font-size: ms(-1);
+        color: $gray;
+        text-transform: lowercase;
+
+        a {
+            text-decoration: none;
+            color: $gray;
+        }
     }
 
-    @extend %content;
-  }
-
-  &__byline {
-    margin-left: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: auto;
-    margin-top: $spacing;
-
-    @include mq(md) {
-      margin-top: 0;
+    &__header {
+        @include mq(md) {
+            width: 60%;
+        }
     }
 
-    &__name {
-      font-weight: 700;
-      line-height: $heading-line-height;
+    &__title {
+        margin-top: $spacing;
+        margin-bottom: $spacing/4;
+
+        em {
+            @include emphasis($brand-pink);
+        }
+
+        &--large {
+            font-size: ms(6);
+        }
     }
 
-    &__date {
-      font-size: ms(-1);
-      line-height: $heading-line-height;
+    &__excerpt {
+        font-size: ms(1);
     }
 
-    &__image {
-      border: 1px solid $gray-light;
-      width: 2 * $spacing;
-      height: 2 * $spacing;
-      border-radius: 99999px;
-      float: left;
-      margin-right: $spacing/3;
+    &__comment-count {
+        margin-top: $spacing/4;
     }
-  }
 
-  &__featured-image {
-    max-width: 100%;
-    height: auto;
-  }
+    &__featured-image {
+        margin: $spacing 0 0;
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__body {
+        @include mq(md) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+    }
+
+    &__content {
+        @include overline($brand-green);
+
+        &::before {
+            margin-bottom: $spacing;
+        }
+
+        flex: 0 1 65%;
+        position: relative;
+        padding-top: $spacing;
+        margin-bottom: 2 * $spacing;
+
+        @include mq(md) {
+            padding-right: 2 * $spacing;
+        }
+
+        @extend %content;
+    }
+
+    &__byline {
+        margin-left: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: auto;
+        margin-top: $spacing;
+
+        @include mq(md) {
+            margin-top: 0;
+        }
+
+        &__name {
+            font-weight: 700;
+            line-height: $heading-line-height;
+        }
+
+        &__date {
+            font-size: ms(-1);
+            line-height: $heading-line-height;
+        }
+
+        &__image {
+            border: 1px solid $gray-light;
+            width: 2 * $spacing;
+            height: 2 * $spacing;
+            border-radius: 99999px;
+            float: left;
+            margin-right: $spacing/3;
+        }
+    }
+
+    &__featured-image {
+        max-width: 100%;
+        height: auto;
+    }
 }

@@ -3,16 +3,15 @@ layout: base
 
 ---
 
-<div class="container">
+<div class="container post">
 
   <div class="post__header">
     <div class="post__breadcrumb">
-    <a href="/">Home</a> > <a href="/news/">News</a>
+    <a href="/">Home</a> >
     </div>
 
-    <h1 class="post__title">{{ title | safe }}</h1>
+    <h1 class="post__title post__title--large">{{ title | markdownify | safe }}</h1>
 
-    {{ content | markdown | safe}}
 
 
 
@@ -21,6 +20,8 @@ layout: base
   <div class="post__body">
 
     <article class="post__content">
+        {{ content | safe }}
+
     </article>
   </div>
 
