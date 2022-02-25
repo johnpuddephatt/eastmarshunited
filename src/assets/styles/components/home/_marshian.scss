@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .marshian {
   padding: 2 * $spacing 0;
   position: relative;
@@ -36,7 +38,7 @@
 
   &__title {
     font-size: ms(4);
-    margin-bottom: $spacing/2;
+    margin-bottom: $spacing*0.5;
   }
 
   &__image {
@@ -77,12 +79,12 @@
   &__date {
     color: $brand-blue;
     font-weight: 700;
-    padding: $spacing/3 $spacing/1.5;
+    padding: math.div($spacing, 3) math.div($spacing, 1.5);
     @include emphasis($brand-blue);
-    margin-bottom: $spacing/2;
+    margin-bottom: $spacing*0.5;
 
     @include orientation(landscape) {
-      margin-left: -$spacing/1.75;
+      margin-left: math.div(-$spacing, 1.75);
     }
   }
 
@@ -103,6 +105,6 @@
   .read-more {
     display: inline-block;
     font-size: ms(-1);
-    margin-top: $spacing/2;
+    margin-top: $spacing*0.5;
   }
 }

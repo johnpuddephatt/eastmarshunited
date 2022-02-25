@@ -7,7 +7,7 @@
   ul {
     list-style-type: disc;
     margin-left: $spacing;
-    margin-bottom: $spacing/2;
+    margin-bottom: $spacing*0.5;
   }
 
   img {
@@ -28,15 +28,15 @@
   }
 
   div + div  {
-    margin-top: $spacing/2;
+    margin-top: $spacing*0.5;
   }
 
   p {
-    margin-bottom: $spacing/2;
+    margin-bottom: $spacing*0.5;
   }
 
   .wp-block-image {
-    margin-top: $spacing/2;
+    margin-top: $spacing*0.5;
     margin-bottom: $spacing;
 
     img {
@@ -136,7 +136,7 @@
     content: '';
     width: 3 * $spacing;
     max-width: 20%;
-    height: $spacing/8;
+    height: $spacing*0.125;
     background-color: $color;
     margin-bottom: 1.2rem;
   }

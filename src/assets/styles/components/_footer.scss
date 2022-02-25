@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .footer {
     background-color: $gray-darkest;
     color: #fff;
@@ -53,7 +55,7 @@
             margin-bottom: $spacing;
 
             @include orientation(landscape) {
-                margin-bottom: $spacing/2;
+                margin-bottom: $spacing*0.5;
             }
 
             &:first-child {
@@ -61,9 +63,9 @@
                     content: '';
                     display: block;
                     width: 2 * $spacing;
-                    height: $spacing/6;
+                    height: math.div($spacing, 6);
                     background-color: #fff;
-                    margin-bottom: $spacing/2;
+                    margin-bottom: $spacing*0.5;
                 }
             }
             &:not(:first-child) {
@@ -82,7 +84,7 @@
             flex: 0 0 15%;
             margin-right: 0;
             margin-left: 2 * $spacing;
-            margin-top: $spacing/2;
+            margin-top: $spacing*0.5;
         }
 
         a {
@@ -102,7 +104,7 @@
         margin-top: 2 * $spacing;
 
         @include orientation(landscape) {
-            margin-top: $spacing/1.5;
+            margin-top: math.div($spacing, 1.5);
             padding-left: $spacing;
             margin-left: auto;
             flex: 0 0 25%;
@@ -114,7 +116,7 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: flex-end;
-        gap: $spacing/2;
+        gap: $spacing*0.5;
 
         a {
             flex: 1 1 40%;

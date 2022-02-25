@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .post {
     &::before {
         content: '';
@@ -38,7 +40,7 @@
 
     &__title {
         margin-top: $spacing;
-        margin-bottom: $spacing/4;
+        margin-bottom: $spacing*0.25;
 
         em {
             @include emphasis($brand-pink);
@@ -54,7 +56,7 @@
     }
 
     &__comment-count {
-        margin-top: $spacing/4;
+        margin-top: $spacing*0.25;
     }
 
     &__featured-image {
@@ -122,7 +124,7 @@
             height: 2 * $spacing;
             border-radius: 99999px;
             float: left;
-            margin-right: $spacing/3;
+            margin-right: math.div($spacing, 3);
         }
     }
 

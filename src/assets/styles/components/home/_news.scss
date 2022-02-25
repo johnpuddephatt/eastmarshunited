@@ -16,7 +16,7 @@
     position: absolute;
     z-index: map-get($z-layers, content-overlay);
     top: -$spacing;
-    right: -$spacing/2;
+    right: -$spacing*0.5;
 
     @include orientation(landscape) {
       top: auto;
@@ -55,7 +55,7 @@
 
   &__post {
     flex: 0 1 25%;
-    margin: $spacing/2 0;
+    margin: $spacing*0.5 0;
     padding: 0;
     text-decoration: none;
     transition: box-shadow 0.5s ease;
@@ -104,8 +104,8 @@
       display: block;
       font-size: ms(-1);
       font-weight: 500;
-      margin-top: $spacing/4;
-      margin-bottom: $spacing/2;
+      margin-top: $spacing*0.25;
+      margin-bottom: $spacing*0.5;
 
       @include orientation(portrait) {
         margin-bottom: 0;
@@ -117,7 +117,7 @@
       height: 6em;
       border-radius: 99999px;
       display: block;
-      margin-bottom: $spacing/2;
+      margin-bottom: $spacing*0.5;
       object-fit: cover;
       object-position: center;
 
@@ -151,7 +151,7 @@
         display: block;
         width: 100%;
         height: auto;
-        margin-bottom: $spacing/2;
+        margin-bottom: $spacing*0.5;
 
         @include orientation(landscape) {
           margin-right: 2 * $spacing;
@@ -172,13 +172,13 @@
     .read-more {
       display: inline-block;
       font-size: ms(-1);
-      margin-top: $spacing/2;
+      margin-top: $spacing*0.5;
       font-weight: 600;
       color: $gray-dark;
 
       &::after {
         display: inline-block;
-        margin-left: $spacing/4;
+        margin-left: $spacing*0.25;
         content: '>';
 
       }

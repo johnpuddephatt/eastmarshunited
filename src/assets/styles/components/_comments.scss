@@ -23,7 +23,7 @@
 
     &__avatar {
       border-radius: 999999px;
-      margin-bottom: $spacing/2;
+      margin-bottom: $spacing*0.5;
       width: 3 * $spacing;
       height: auto;
     }
@@ -40,7 +40,7 @@
 
 .comment-respond {
   label {
-    margin-top: $spacing/2;
+    margin-top: $spacing*0.5;
     display: block;
   }
 
@@ -54,6 +54,6 @@
     @include button-reset;
     @include button-bg($brand-green);
     margin-top: $spacing;
-    padding: 0 $spacing/2;
+    padding: 0 $spacing*0.5;
   }
 }

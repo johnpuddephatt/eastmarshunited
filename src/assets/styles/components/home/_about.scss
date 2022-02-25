@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .about {
   padding: 0 0 4 * $spacing;
   position: relative;
@@ -46,7 +48,7 @@
 
     &__title {
       font-size: ms(4);
-      margin-bottom: $spacing/2;
+      margin-bottom: $spacing*0.5;
     }
 
     &__image {
@@ -92,7 +94,7 @@
     .read-more {
       display: inline-block;
       font-size: ms(-1);
-      margin-top: $spacing/2;
+      margin-top: $spacing*0.5;
     }
   }
 
@@ -119,9 +121,9 @@
 
     &__direction {
       position: absolute;
-      right: $spacing/2;
+      right: $spacing*0.5;
       padding-right: $spacing;
-      bottom: -$spacing/1.2;
+      bottom: math.div(-$spacing, 1.2);
 
       @include orientation(portrait) {
         display: none;
@@ -141,7 +143,7 @@
 
       &::before {
         display: block;
-        margin: 0 $spacing/6;
+        margin: 0 math.div($spacing, 6);
         font-size: ms(4);
         text-indent: 0;
         left: 0;
@@ -165,9 +167,9 @@
   &__control {
     @include button-reset;
     text-indent: -9999px;
-    flex: 0 0 $spacing/3;
-    width: $spacing/3;
-    height: $spacing/3;
+    flex: 0 0 math.div($spacing, 3);
+    width: math.div($spacing, 3);
+    height: math.div($spacing, 3);
     background-color: $gray;
     border-radius: 9999px;
 
@@ -192,7 +194,7 @@
     }
 
     + button {
-      margin-left: $spacing/4;
+      margin-left: $spacing*0.25;
     }
 
   }

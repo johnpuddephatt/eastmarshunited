@@ -39,7 +39,7 @@ eleventyNavigation:
             <img class="news__post--featured__image" src="/assets/images/placeholder.png" />
           {% endif %}
         <div class="news__post__text">
-          <h2 class="news__post--featured__title">{{ featured_post.title.rendered | safe }}</h2>
+          <h2 class="news__post--featured__title">{{ featured_post.title.rendered }}</h2>
           <time class="news__post__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
           <p>{{ featured_post.excerpt.rendered | excerpt(150) | safe }}</p>
           <span class="button read-more">Read more</span>

@@ -20,7 +20,7 @@
 
   &__title {
     font-size: ms(4);
-    margin-bottom: $spacing/2;
+    margin-bottom: $spacing*0.5;
   }
 
   &__image {
@@ -56,6 +56,6 @@
   .read-more {
     display: inline-block;
     font-size: ms(-1);
-    margin-top: $spacing/2;
+    margin-top: $spacing*0.5;
   }
 }

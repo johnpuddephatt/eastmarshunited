@@ -62,8 +62,8 @@
       display: block;
       font-size: ms(-1);
       font-weight: 700;
-      margin-top: $spacing/4;
-      margin-bottom: $spacing/2;
+      margin-top: $spacing*0.25;
+      margin-bottom: $spacing*0.5;
     }
 
     &__text {
@@ -76,7 +76,7 @@
     .read-more {
       display: inline-block;
       font-size: ms(-1);
-      margin-top: $spacing/2;
+      margin-top: $spacing*0.5;
     }
   }
 }

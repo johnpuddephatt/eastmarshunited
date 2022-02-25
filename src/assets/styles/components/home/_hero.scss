@@ -1,103 +1,109 @@
+@use "sass:math";
+
 .hero {
-  background-color: $gray-darkest;
-  color: #fff;
+    background-color: $gray-darkest;
+    color: #fff;
 
-  .container {
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    position: relative;
+    .container {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        position: relative;
 
-    @include orientation(portrait) {
-      min-height: calc(100vh - #{2.75 * $spacing});
-      padding-bottom: 2 * $spacing;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-  }
-
-  .hero__loading {
-    display: none;
-
-    @include orientation(portrait) {
-      display: block;
-      left: 50%;
-      transform: translateX(-60%);
-      top: 0;
-      width: auto;
-      height: 100vh;
-      position: absolute;
-      animation: fadeOutHeroLines 200ms 2s forwards;
-    }
-  }
-
-  &__text {
-    flex: 0 0 52.5%;
-
-    @include overline();
-
-    .button {
-      margin-top: $spacing;
+        @include orientation(portrait) {
+            min-height: calc(100vh - #{2.75 * $spacing});
+            padding-bottom: 2 * $spacing;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
     }
 
-    @include orientation(portrait) {
-      padding-bottom: $spacing;
-      opacity: 0;
-      transform: translateY($spacing/3);
-      animation: fadeInHeroText 1.5s 2.25s forwards;
-    }
-  }
+    .hero__loading {
+        display: none;
 
-  &__title {
-    line-height: $line-height;
-    font-size: ms(2);
-
-    @include orientation(portrait) {
-      font-size: ms(3);
-    }
-
-    em {
-      @include emphasis($brand-yellow);
-    }
-  }
-
-  &__image {
-    margin-top: auto;
-    flex: 1;
-
-    @include hero-image(1.5, 60%)
-
-    @include orientation(portrait) {
-      display: none;
+        @include orientation(portrait) {
+            display: block;
+            left: 50%;
+            transform: translateX(-60%);
+            top: 0;
+            width: auto;
+            height: 100vh;
+            position: absolute;
+            animation: fadeOutHeroLines 200ms 2s forwards;
+        }
     }
 
-    @include mq(lg) {
-      @include hero-image(1.3, 80%)
+    &__text {
+        flex: 0 0 52.5%;
+
+        @include overline();
+
+        .button {
+            margin-top: $spacing;
+        }
+
+        @include orientation(portrait) {
+            padding-bottom: $spacing;
+            opacity: 0;
+            transform: translateY(math.div($spacing, 3));
+            animation: fadeInHeroText 1.5s 2.25s forwards;
+        }
     }
 
-    @include mq(xxl) {
-      @include hero-image(1.1, 85%)
+    &__title {
+        line-height: $line-height;
+        font-size: ms(2);
+
+        @include orientation(portrait) {
+            font-size: ms(3);
+        }
+
+        em {
+            @include emphasis($brand-yellow);
+        }
     }
 
-    img {
-      display: block;
-      position: absolute;
-      bottom: -$spacing/2;
-      transform: translateX(-50%);
-      height: auto;
-    }
+    &__image {
+        margin-top: auto;
+        flex: 1;
 
-    &::after {
-      pointer-events: none;
-      content: '';
-      position: absolute;
-      top: 100%;
-      height: 2000px;
-      display: block;
-      background-image: url(../images/emu-family-outline-2.svg);
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      background-position: top center;
+        @include hero-image(1.5, 60%);
+
+        @include orientation(portrait) {
+            display: none;
+        }
+
+        @include mq(lg) {
+            @include hero-image(1.3, 80%);
+        }
+
+        @include mq(xxl) {
+            @include hero-image(1.1, 85%);
+        }
+
+        @include mq(xxxl) {
+            @include hero-image(0.9, 85%);
+        }
+
+        img {
+            display: block;
+            position: absolute;
+            bottom: -$spacing*0.5;
+            transform: translateX(-50%);
+            height: auto;
+        }
+
+        &::after {
+            pointer-events: none;
+            content: '';
+            position: absolute;
+            top: 100%;
+            height: 2000px;
+            display: block;
+            background-image: url(../images/emu-family-outline-2.svg);
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-position: top center;
+        }
     }
-  }
 }

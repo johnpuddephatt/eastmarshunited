@@ -2,9 +2,6 @@
 layout: page
 title: The East Marsh _Awards_ 2021
 permalink: /awards/
-eleventyNavigation:
-    order: -1
-    key: Awards
 ---
 
 <h2>Do you know someone on the East Marsh who’s

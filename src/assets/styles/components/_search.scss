@@ -44,7 +44,7 @@
       color: $gray-light;
       font-size: ms(3);
       position: absolute;
-      right: $spacing/4;
+      right: $spacing*0.25;
       top: 50%;
       transform: translateY(-50%);
     }

@@ -1,4 +1,7 @@
 // Main Site Layout
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     overflow-x: hidden;
@@ -37,11 +40,11 @@ body {
     max-width: $container-max-width;
 
     &__narrow {
-      max-width: map-get($breakpoints, 'md');
+        max-width: map-get($breakpoints, 'md');
     }
 }
 
 .page {
-  margin-top: 4 * $spacing;
-  margin-bottom: 4 * $spacing;
+    margin-top: 4 * $spacing;
+    margin-bottom: 4 * $spacing;
 }

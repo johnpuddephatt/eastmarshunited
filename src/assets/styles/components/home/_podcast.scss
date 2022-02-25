@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .podcast {
     padding: 2 * $spacing 0 0;
     position: relative;
@@ -146,7 +148,7 @@
 
     &__title {
         font-size: ms(4);
-        margin-bottom: $spacing/4;
+        margin-bottom: $spacing*0.25;
     }
 
     &__image {
@@ -165,9 +167,9 @@
 
         color: $brand-blue;
         font-weight: 700;
-        padding: $spacing/3 $spacing/1.5;
-        margin-left: -$spacing/1.75;
-        margin-bottom: $spacing/2;
+        padding: math.div($spacing, 3) math.div($spacing, 1.5);
+        margin-left: math.div(-$spacing, 1.75);
+        margin-bottom: $spacing*0.5;
     }
 
     &__button {
@@ -176,7 +178,7 @@
         margin-top: 1.5 * $spacing;
         font-weight: 700;
         text-transform: lowercase;
-        padding-bottom: $spacing/2;
+        padding-bottom: $spacing*0.5;
         border-bottom: 1px solid $gray-light;
         font-size: ms(1);
 
@@ -261,6 +263,6 @@
     .read-more {
         display: inline-block;
         font-size: ms(-1);
-        margin-top: $spacing/2;
+        margin-top: $spacing*0.5;
     }
 }

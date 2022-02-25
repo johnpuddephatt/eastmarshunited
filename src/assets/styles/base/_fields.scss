@@ -2,7 +2,7 @@
     margin: $spacing 0;
     display: flex;
     flex-direction: column;
-    gap: $spacing/2;
+    gap: $spacing*0.5;
 
     @media screen and (orientation: landscape) {
         gap: $spacing;
@@ -20,7 +20,7 @@
     textarea {
         max-width: 45em;
         display: block;
-        padding: $spacing/4;
+        padding: $spacing*0.25;
         flex: none;
         @media screen and (orientation: landscape) {
             width: 45%;

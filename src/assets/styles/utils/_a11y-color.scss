@@ -1,5 +1,7 @@
 // Globals
 // Use the default keyword in case these have already been set somewhere else
+@use "sass:math";
+
 $default_bg: $gray-light !default;
 $default_fg: $text-color !default;
 
@@ -8,7 +10,7 @@ $default_fg: $text-color !default;
 
 /// Helper: Remove (strip) Units
 @function strip-unit($value) {
-  @return ($value / ($value * 0 + 1));
+  @return math.div($value, $value * 0 + 1);
 }
 
 /// Helper: Calculate Luminance of a single color
@@ -43,12 +45,12 @@ $default_fg: $text-color !default;
 @function color-contrast($fg, $bg) {
   $luminance1: luminance($fg) + 0.05;
   $luminance2: luminance($bg) + 0.05;
-  $ratio: $luminance1 / $luminance2;
+  $ratio: math.div($luminance1, $luminance2);
   @if $luminance2 > $luminance1 {
-    $ratio: 1 / $ratio;
+    $ratio: math.div(1, $ratio);
   }
   // Round to a hundreth because 6.96 should not pass a ratio of 7.0
-  $ratio: round($ratio * 100) / 100;
+  $ratio: round($ratio * 100) * 0.01;
   @return $ratio;
 }
 
@@ -259,7 +261,7 @@ $default_fg: $text-color !default;
     // This might loop many times depending on the colors
     @while color-contrast($fg, $bg) < $ratio {
       // Scale both the lightness and saturation, but half for saturation
-      $fg: scale-color($fg, $lightness: $step, $saturation: $step/2);
+      $fg: scale-color($fg, $lightness: $step, $saturation: $step*0.5);
     }
     @return $fg;
   }

@@ -54,7 +54,7 @@
       img {
         display: block;
         position: absolute;
-        bottom: -$spacing/2;
+        bottom: -$spacing*0.5;
         transform: translateX(-50%);
         height: auto;
       }
@@ -78,13 +78,13 @@
     margin: $spacing 0 0;
 
     &__link {
-      margin-bottom: $spacing/4;
+      margin-bottom: $spacing*0.25;
       display: block;
 
       &::before {
         content: '–';
         display: inline-block;
-        margin-right: $spacing/4;
+        margin-right: $spacing*0.25;
         color: $gray;
       }
       // text-decoration: none;
@@ -190,7 +190,7 @@
 
     &__title {
       font-size: ms(4);
-      margin-bottom: $spacing/2;
+      margin-bottom: $spacing*0.5;
     }
 
     &__description {
@@ -263,7 +263,7 @@
     .read-more {
       display: inline-block;
       font-size: ms(-1);
-      margin-top: $spacing/2;
+      margin-top: $spacing*0.5;
     }
 
     &__content {
@@ -274,7 +274,7 @@
 
       h2 {
         margin-top: $spacing;
-        margin-bottom: $spacing/2;
+        margin-bottom: $spacing*0.5;
       }
     }
   }
