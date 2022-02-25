@@ -1,0 +1,350 @@
+.invest {
+    &__hero {
+        background-color: $gray-darkest;
+        color: #fff;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        @include orientation(portrait) {
+            min-height: calc(90vh - #{2.75 * $spacing});
+        }
+
+        &::after {
+            pointer-events: none;
+            content: '';
+            position: absolute;
+            top: 0;
+            @include orientation(portrait) {
+                top: 2 * $spacing;
+            }
+
+            right: -2 * $spacing;
+            height: calc(1.226 * (70vh + #{3.37 * $spacing}));
+            width: 300%;
+            display: block;
+            background-image: url(/assets/images/join-lines.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top right;
+        }
+
+        .button {
+            width: auto !important;
+        }
+
+        &__title {
+            margin-top: 2 * $spacing;
+            font-size: ms(4);
+        }
+
+        &__subtitle {
+            font-weight: 700;
+            font-size: ms(1);
+
+            @include overline;
+            margin-top: $spacing * 0.5;
+            margin-bottom: $spacing * 0.5;
+
+            em {
+                @include emphasis($brand-yellow);
+            }
+        }
+
+        .container {
+            position: relative;
+            padding-bottom: 3 * $spacing;
+
+            > * {
+                width: calc(#{map-get($breakpoints, lg)} - #{$spacing});
+                max-width: 50%;
+            }
+
+            @include orientation(portrait) {
+                text-align: right;
+                padding-right: 0;
+                padding-left: 3 * $spacing;
+                padding-bottom: $spacing;
+
+                .join__hero__subtitle::before {
+                    margin-left: auto;
+                }
+
+                > * {
+                    margin-left: auto;
+                    width: auto;
+                    max-width: calc(
+                        #{map-get($breakpoints, sm)} - #{2 * $spacing}
+                    );
+                }
+            }
+        }
+    }
+
+    &__intro {
+        padding-top: 3 * $spacing;
+
+        @include mq(lg) {
+            padding-bottom: 3 * $spacing;
+        }
+
+        .container {
+            position: relative;
+
+            img {
+                margin-top: 3 * $spacing;
+                display: block;
+                max-width: 50%;
+                @include mq-down(lg) {
+                    margin-left: auto;
+                    width: 100%;
+                    max-width: map-get($breakpoints, sm);
+                    height: 60vw;
+
+                    object-fit: cover;
+                    object-position: 40% center;
+                }
+            }
+
+            @include mq(lg) {
+                > * {
+                    max-width: 50%;
+                }
+                display: flex;
+                flex-direction: row;
+
+                img {
+                    position: absolute;
+                    right: -2 * $spacing;
+                    top: -5 * $spacing;
+                }
+            }
+        }
+
+        em {
+            @include emphasis($brand-yellow);
+        }
+
+        h2 {
+            font-size: ms(3);
+            margin-top: 1.5 * $spacing;
+            margin-bottom: $spacing;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__benefits {
+        .container {
+            padding-top: 2 * $spacing;
+            padding-bottom: 3 * $spacing;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__left {
+            h2 {
+                margin-bottom: 2 * $spacing;
+                font-size: ms(4);
+                color: $brand-blue;
+            }
+        }
+
+        &__right {
+            width: 18rem;
+
+            > div {
+                position: sticky;
+                top: 0;
+            }
+            margin-top: 3 * $spacing;
+
+            h2 {
+                margin-bottom: $spacing;
+            }
+
+            li {
+                font-size: ms(-1);
+                margin-bottom: $spacing/2;
+            }
+        }
+
+        &__item {
+            max-width: 30rem;
+            padding: 0;
+            text-decoration: none;
+            transition: box-shadow 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            color: $text-color;
+
+            @include overline($brand-blue);
+
+            @include orientation(portrait) {
+                max-width: none;
+            }
+
+            @include orientation(landscape) {
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-right: 2 * $spacing;
+
+                + .invest__benefits__item {
+                    margin-top: 2 * $spacing;
+                }
+            }
+
+            &__title {
+                font-weight: 700;
+                font-size: ms(1);
+                margin-bottom: $spacing * 0.25;
+                color: $brand-blue;
+                display: flex;
+
+                svg {
+                    display: block;
+                    margin-top: -$spacing * 0.5;
+                    width: 1.5 * $spacing;
+                    height: 1.5 * $spacing;
+                    padding-left: $spacing * 0.5;
+                    margin-left: auto;
+                }
+            }
+
+            &__text {
+                p {
+                    font-size: ms(-1);
+                    color: $gray;
+                }
+            }
+        }
+    }
+
+    &__signup {
+        margin-bottom: 3 * $spacing;
+        position: relative;
+
+        &::before {
+            content: '';
+            pointer-events: none;
+            position: absolute;
+            z-index: -1;
+            left: -1em;
+            right: -1em;
+            top: 50%;
+            transform: translateY(-70%);
+            padding-top: 140%;
+            background-image: url('/assets/images/join-line-2.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200%;
+
+            @include orientation(landscape) {
+                padding-top: 70%;
+                transform: translateY(-35%);
+                background-size: contain;
+            }
+        }
+
+        &__title {
+            font-size: ms(4);
+            text-align: center;
+            margin-bottom: $spacing * 0.5;
+        }
+
+        &__subtitle {
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: $spacing;
+        }
+
+        &__links {
+            @include overline($brand-green);
+
+            &::before {
+                margin-bottom: $spacing;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        &__link {
+            display: block;
+            position: relative;
+            background-color: #fff;
+            text-decoration: none;
+            border: 1px solid $brand-green;
+            border-radius: $border-radius;
+            padding: $spacing;
+            padding-right: 1.5 * $spacing;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+
+            &:hover {
+                transform: scale(1.03);
+                box-shadow: $box-shadow-elevated;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: $spacing * 0.5;
+            }
+
+            &::after {
+                content: '>';
+                font-size: ms(2);
+                color: $brand-green;
+                display: block;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: $spacing * 0.5;
+            }
+
+            em {
+                @include emphasis($brand-green);
+            }
+
+            &__title {
+                margin-bottom: $spacing * 0.25;
+            }
+
+            &__details {
+                font-size: ms(-1);
+            }
+        }
+    }
+
+    &__more {
+        margin-bottom: 3 * $spacing;
+
+        &__title {
+            font-size: ms(4);
+            margin-bottom: $spacing * 0.5;
+        }
+
+        &__subtitle {
+            font-weight: 700;
+            margin-bottom: $spacing;
+            max-width: map-get($breakpoints, md);
+        }
+
+        &__item {
+            border-bottom: 1px solid $brand-green;
+
+            &__question {
+                padding: $spacing * 0.5;
+                cursor: pointer;
+            }
+
+            &__answer {
+                font-size: ms(-1);
+                padding: 0 $spacing $spacing * 0.5;
+
+                @extend %content;
+            }
+        }
+    }
+}
