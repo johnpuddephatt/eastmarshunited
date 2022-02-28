@@ -17,7 +17,7 @@
             position: absolute;
             top: 0;
             @include orientation(portrait) {
-                top: 2 * $spacing;
+                top: -2 * $spacing;
             }
 
             right: -2 * $spacing;
@@ -54,6 +54,7 @@
 
         .container {
             position: relative;
+            z-index: 99;
             padding-bottom: 3 * $spacing;
 
             > * {
@@ -144,6 +145,10 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+
+            @include orientation(portrait) {
+                flex-direction: column;
+            }
         }
 
         &__left {
@@ -192,10 +197,10 @@
                 margin-top: 0;
                 margin-bottom: 0;
                 margin-right: 2 * $spacing;
+            }
 
-                + .invest__benefits__item {
-                    margin-top: 2 * $spacing;
-                }
+            + .invest__benefits__item {
+                margin-top: 2 * $spacing;
             }
 
             &__title {
