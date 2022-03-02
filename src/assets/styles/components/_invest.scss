@@ -138,6 +138,24 @@
         }
     }
 
+    &__video {
+        margin-top: $spacing;
+        margin-bottom: 2 * $spacing;
+    }
+
+    &__photos {
+        &__title {
+            font-size: ms(2);
+            color: $brand-blue;
+            margin-bottom: 2 * $spacing;
+        }
+        img {
+            width: 100%;
+            display: block;
+            margin-bottom: 2 * $spacing;
+        }
+    }
+
     &__benefits {
         .container {
             padding-top: 2 * $spacing;
