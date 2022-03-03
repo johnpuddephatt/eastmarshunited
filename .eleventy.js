@@ -12,8 +12,8 @@ module.exports = function (config) {
     // Plugins
     config.addPlugin(pluginRss)
     config.addPlugin(pluginNavigation)
-    config.addPlugin( pluginSrcsetImg, {
-      resizeOriginal: false
+    config.addPlugin(pluginSrcsetImg, {
+        resizeOriginal: false
     })
 
     // Filters
@@ -49,11 +49,13 @@ module.exports = function (config) {
     )
 
     // Collections
-    config.addCollection('events', collection => {
-      return collection.getFilteredByGlob('./src/events/**').sort(function(a, b) {
-        return (b.data.date) - (a.data.date);
-      });;
-    });
+    config.addCollection('events', (collection) => {
+        return collection
+            .getFilteredByGlob('./src/events/**')
+            .sort(function (a, b) {
+                return b.data.date - a.data.date
+            })
+    })
 
     // Layouts
     config.addLayoutAlias('base', 'base.njk')
@@ -64,6 +66,7 @@ module.exports = function (config) {
     config.addPassthroughCopy('src/site.webmanifest')
     config.addPassthroughCopy('src/assets/images')
     config.addPassthroughCopy('src/assets/fonts')
+    config.addPassthroughCopy('src/uploads')
 
     // Deep-Merge
     config.setDataDeepMerge(true)
@@ -77,7 +80,7 @@ module.exports = function (config) {
             layouts: 'layouts',
             data: 'data'
         },
-        templateFormats: ['njk','md', '11ty.js'],
+        templateFormats: ['njk', 'md', '11ty.js'],
         htmlTemplateEngine: 'njk',
         markdownTemplateEngine: 'njk'
     }

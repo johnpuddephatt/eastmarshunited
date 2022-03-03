@@ -4,6 +4,7 @@
         color: #fff;
         min-height: 70vh;
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: flex-end;
 
@@ -21,7 +22,7 @@
             }
 
             right: -2 * $spacing;
-            height: calc(1.226 * (70vh + #{3.37 * $spacing}));
+            height: 122.7%;
             width: 300%;
             display: block;
             background-image: url(/assets/images/join-lines.svg);
