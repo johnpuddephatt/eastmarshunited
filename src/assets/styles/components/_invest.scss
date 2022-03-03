@@ -85,10 +85,11 @@
     }
 
     &__intro {
-        padding-top: 3 * $spacing;
+        padding-top: 4 * $spacing;
+        padding-bottom: 2 * $spacing;
 
         @include mq(lg) {
-            padding-bottom: 3 * $spacing;
+            padding-bottom: 4 * $spacing;
         }
 
         .container {
@@ -153,7 +154,10 @@
         img {
             width: 100%;
             display: block;
-            margin-bottom: 2 * $spacing;
+            margin-bottom: $spacing;
+            @include mq(lg) {
+                margin-bottom: 2 * $spacing;
+            }
         }
     }
 
@@ -185,7 +189,10 @@
                 position: sticky;
                 top: 0;
             }
-            margin-top: 3 * $spacing;
+
+            @include mq(lg) {
+                margin-top: 3 * $spacing;
+            }
 
             h2 {
                 margin-bottom: $spacing;
