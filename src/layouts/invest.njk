@@ -43,18 +43,20 @@ layout: base
         </div>
       </div>
     {% endfor %}
-    </div>
-    <div class="invest__benefits__right">
+<br><br>
+    <p>For more information about our plans, please read our <a target="_blank" href="/uploads/EMC_share-offer-document-final.jpg">share offer document</a>.</p>
+  </div>
+  <div class="invest__benefits__right">
     <div>
       <h2>Our timeline</h2>
       <ul>
         {% for entry in timeline %}
-          <li>{{ entry }}</li>
+          <li>{{ entry | markdownify | safe }}</li>
         {% endfor %}
       </ul>
-</div>
     </div>
   </div>
+</div>
 </div>
 
 <div class="invest__video">
@@ -70,7 +72,7 @@ layout: base
   <div class="container container__narrow">
     <h2 class="invest__signup__title">{{ signup.title }}</h2>
     <p class="invest__signup__subtitle">Our share offer is launching very soon – keep an eye on our social media or check back here in a few days to find out how you can invest.</p>
-    {# <h2 class="invest__signup__title">{{ signup.title }}</h2>
+    <h2 class="invest__signup__title">{{ signup.title }}</h2>
     <p class="invest__signup__subtitle">{{ signup.details }}</p>
     <div class="invest__signup__links">
       {% for option in signup.options %}
@@ -79,7 +81,7 @@ layout: base
           <p class="invest__signup__link__details">{{ option.details }}</p>
         </a>
       {% endfor %}
-    </div> #}
+    </div>
   </div>
 </div>
 
