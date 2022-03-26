@@ -3,64 +3,63 @@
     color: white;
     padding: $spacing 0;
     position: relative;
+    z-index: 9;
 
     &__inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     &__logo {
-      display: inline-block;
-      margin-bottom: -2 * $spacing;
+        display: inline-block;
+        margin-bottom: -2 * $spacing;
 
-      @include orientation(portrait) {
-        .body__home & {
-          position: absolute;
-          z-index: map-get($z-layers, content-overlay);
+        @include orientation(portrait) {
+            .body__home & {
+                position: absolute;
+                z-index: map-get($z-layers, content-overlay);
 
-          top: 50vh;
-          left: 50%;
-          transform: translate(-50%,-50%);
-          animation: fadeOutHeroLines 500ms 1.5s forwards;
+                top: 50vh;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                animation: fadeOutHeroLines 500ms 1.5s forwards;
 
-          .icon--logo {
-            width: 6 * $spacing;
-          }
+                .icon--logo {
+                    width: 6 * $spacing;
+                }
 
-          &::before {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            display: block;
-            background-color: $gray-darkest;
-            top: 0;
-            width: 75%;
-            transform: rotate(17.5deg);
-            padding-top: 70%;
-            margin: 15%;
-
-          }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    display: block;
+                    background-color: $gray-darkest;
+                    top: 0;
+                    width: 75%;
+                    transform: rotate(17.5deg);
+                    padding-top: 70%;
+                    margin: 15%;
+                }
+            }
         }
-      }
-
     }
 
     .icon--logo {
-      color: white;
-      width: 3 * $spacing;
-      height: auto;
+        color: white;
+        width: 3 * $spacing;
+        height: auto;
     }
 
     &--white {
-      background-color: #fff;
+        background-color: #fff;
 
-      .icon--logo {
-        color: $gray-darkest;
-      }
+        .icon--logo {
+            color: $gray-darkest;
+        }
 
-      .nav__toggle {
-        color: $gray-darkest;
-      }
+        .nav__toggle {
+            color: $gray-darkest;
+        }
     }
 }
