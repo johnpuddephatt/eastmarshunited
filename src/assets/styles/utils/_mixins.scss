@@ -3,148 +3,149 @@
 //--------------------
 
 %content {
+    ul {
+        list-style-type: disc;
+        margin-left: $spacing;
+        margin-bottom: $spacing * 0.5;
+    }
 
-  ul {
-    list-style-type: disc;
-    margin-left: $spacing;
-    margin-bottom: $spacing*0.5;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  blockquote {
-    margin: 2 * $spacing $spacing;
-    font-weight: bold;
-    font-style: italic;
-    color: $brand-blue;
-  }
-
-  hr {
-    max-width: 15em;
-    margin: $spacing auto;
-  }
-
-  div + div  {
-    margin-top: $spacing*0.5;
-  }
-
-  p {
-    margin-bottom: $spacing*0.5;
-  }
-
-  .wp-block-image {
-    margin-top: $spacing*0.5;
-    margin-bottom: $spacing;
+    h2,
+    h3 {
+        margin-bottom: $spacing/2;
+    }
 
     img {
-      display: block;
-      max-width: 100%;
-      height: auto;
+        max-width: 100%;
+        height: auto;
     }
-  }
+
+    blockquote {
+        margin: 2 * $spacing $spacing;
+        font-weight: bold;
+        font-style: italic;
+        color: $brand-blue;
+    }
+
+    hr {
+        max-width: 15em;
+        margin: $spacing auto;
+    }
+
+    div + div {
+        margin-top: $spacing * 0.5;
+    }
+
+    p {
+        margin-bottom: $spacing * 0.5;
+    }
+
+    .wp-block-image {
+        margin-top: $spacing * 0.5;
+        margin-bottom: $spacing * 0.5;
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
 }
 
 @mixin slide_colorables($color) {
-
-  text-decoration-color: transparentize($color,0.5);
-
-  &:hover {
-    text-decoration-color: $color;
-  }
-
-  em {
-    @include emphasis($color);
-  }
-
-  .about__slide__title,
-  .about__item__title {
-    @include overline($color);
-
-    em {
-      @include emphasis($color);
-    }
-  }
-
-  .button {
-    @include button-bg($color);
-  }
-
-  + .about__control.active {
-    background-color: $color;
-  }
-
-  border-bottom-color: $color;
-
-  .about__item__content h2 {
-    font-size: ms(2);
-    color: a11y-color(ms(5), true, $color);
-  }
-
-  .icon--logo-shape,
-  .icon--line  {
-    color: $color;
-  }
-
-  a {
-    text-decoration-color: transparentize($color,0.5);
+    text-decoration-color: transparentize($color, 0.5);
 
     &:hover {
-      text-decoration-color: $color;
+        text-decoration-color: $color;
     }
-  }
 
+    em {
+        @include emphasis($color);
+    }
+
+    .about__slide__title,
+    .about__item__title {
+        @include overline($color);
+
+        em {
+            @include emphasis($color);
+        }
+    }
+
+    .button {
+        @include button-bg($color);
+    }
+
+    + .about__control.active {
+        background-color: $color;
+    }
+
+    border-bottom-color: $color;
+
+    .about__item__content h2 {
+        font-size: ms(2);
+        color: a11y-color(ms(5), true, $color);
+    }
+
+    .icon--logo-shape,
+    .icon--line {
+        color: $color;
+    }
+
+    a {
+        text-decoration-color: transparentize($color, 0.5);
+
+        &:hover {
+            text-decoration-color: $color;
+        }
+    }
 }
 
 @mixin hero-image($width, $x-pos) {
-  img {
-    left: $x-pos;
-    width: $width * 28vw;
-  }
-  &::after {
-    width: $width * 100vw;
-    left: $x-pos;
-    transform: translate(-76.5%, (-26.62vw * $width));
-  }
+    img {
+        left: $x-pos;
+        width: $width * 28vw;
+    }
+    &::after {
+        width: $width * 100vw;
+        left: $x-pos;
+        transform: translate(-76.5%, (-26.62vw * $width));
+    }
 }
 
 @mixin about-image($width, $x-pos) {
-  img {
-    left: $x-pos;
-    width: $width * 28vw;
-  }
-  &::after {
-    width: $width * 120vw;
-    left: $x-pos;
-    transform: translate(-43.5%, (-68.42vw * $width));
-  }
+    img {
+        left: $x-pos;
+        width: $width * 28vw;
+    }
+    &::after {
+        width: $width * 120vw;
+        left: $x-pos;
+        transform: translate(-43.5%, (-68.42vw * $width));
+    }
 }
 
 @mixin join-image($width) {
-  &::after {
-    width: $width * 120vw;
-    transform: translate(-43.5%, (-68.42vw * $width));
-  }
+    &::after {
+        width: $width * 120vw;
+        transform: translate(-43.5%, (-68.42vw * $width));
+    }
 }
-
 
 @mixin overline($color: #fff) {
-  &::before {
-    display: block;
-    content: '';
-    width: 3 * $spacing;
-    max-width: 20%;
-    height: $spacing*0.125;
-    background-color: $color;
-    margin-bottom: 1.2rem;
-  }
+    &::before {
+        display: block;
+        content: '';
+        width: 3 * $spacing;
+        max-width: 20%;
+        height: $spacing * 0.125;
+        background-color: $color;
+        margin-bottom: 1.2rem;
+    }
 }
 @mixin orientation($orientation) {
-  @media screen and (orientation: $orientation) {
-    @content;
-  }
+    @media screen and (orientation: $orientation) {
+        @content;
+    }
 }
 
 @mixin mq($name) {
@@ -226,33 +227,33 @@
 }
 
 @mixin button-bg($bg) {
-  border: 0.15rem solid $bg;
+    border: 0.15rem solid $bg;
 
-  &:hover {
-    border-color: darken($bg,8%);
-    transition: all 0.3s ease;
-  }
-  &:active {
-    border-color: darken($bg,25%);
-  }
+    &:hover {
+        border-color: darken($bg, 8%);
+        transition: all 0.3s ease;
+    }
+    &:active {
+        border-color: darken($bg, 25%);
+    }
 }
 
 @mixin emphasis($color: $brand-yellow) {
-  font-style: normal;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
+    font-style: normal;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
 
-  &::after {
-    display: block;
-    position: absolute;
-    top: 0.25em;
-    left: -0.1em;
-    right: -0.15em;
-    bottom: 0.05em;
-    z-index: -1;
-    content: '';
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml;utf8,#{highlight($color)}");
-  }
+    &::after {
+        display: block;
+        position: absolute;
+        top: 0.25em;
+        left: -0.1em;
+        right: -0.15em;
+        bottom: 0.05em;
+        z-index: -1;
+        content: '';
+        background-size: 100% 100%;
+        background-image: url('data:image/svg+xml;utf8,#{highlight($color)}');
+    }
 }
