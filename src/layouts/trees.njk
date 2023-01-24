@@ -1,0 +1,99 @@
+---
+layout: base
+---
+
+<div class="invest__hero">
+  <div class="container">
+    <h1 class="invest__hero__title">{{ title }}</h1>
+    <div class="invest__hero__subtitle">{{ subtitle  | markdown | safe }}</div>
+    
+  </div>
+</div>
+
+<div class="invest__intro">
+  <div class="container">
+    <div>
+      {{ intro | markdown | safe}}
+    </div>
+    <div>
+      <img src="/assets/images/tree.jpg"/>
+    </div>
+  </div>
+</div>
+
+<div class="tree__plan">
+  <div class="container">
+    <div>
+      <img src="/assets/images/tree-map.jpg" />
+    </div>
+    <div>
+      {{ plan | markdown | safe}}
+    </div>
+  
+  </div>
+</div>
+
+<div class="tree__signup">
+  <div class="container">
+    <div>
+      {{ get_involved | markdown | safe}}
+    </div>
+    <div>
+    <form netlify>
+      <h3>Sign up to volunteer!</h3>
+
+      <div class="field">
+        <label>Name</label>
+        <input name="name" type="text" />
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input name="email" type="email" />
+      </div>
+      
+      <fieldset>
+        <legend>I'm interested in:</legend>
+        <div class="field">
+          <input type="checkbox" name="morning" id="morning" value="true">
+          <label for="morning">Volunteering to help with the schoolchildren in the morning</label>
+        </div>
+        
+        <div class="field">
+          <input type="checkbox" name="afternoon" id="afternoon" value="true">
+          <label for="afternoon">Volunteering to help plant trees in the afternoon</label>
+        </div>
+      </fieldset>
+
+      <input class="button" type="submit" value="Sign up">
+
+  
+    </div>
+  </div>
+</div>
+
+<div class="tree__sponsor">
+  <div class="container">
+    <div>
+      {{ sponsor | markdown | safe}}
+      <br>
+      <a class="button button--inverted" href="/">Sponsor a tree</a>
+    </div>
+  </div>
+</div>
+
+<div class="invest__intro">
+  <div class="container">
+    <div>
+      {{ tree_tales | markdown | safe}}
+    </div>
+  </div>
+</div>
+
+<div class="invest__intro">
+  <div class="container">
+    <div>
+      {{ looking_ahead | markdown | safe}}
+    </div>
+  </div>
+</div>

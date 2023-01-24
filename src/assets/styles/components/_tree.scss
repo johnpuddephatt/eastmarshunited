@@ -1,0 +1,179 @@
+.tree {
+    &__signup {
+        padding-top: 2 * $spacing;
+        padding-bottom: 2 * $spacing;
+
+        form {
+            border: 0.25rem solid $brand-green;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+
+            legend {
+                font-size: 1rem;
+                font-weight: bold;
+                margin-bottom: 1.5rem;
+            }
+
+            h3 {
+                margin-bottom: 1.5rem;
+            }
+
+            .field {
+                margin: 0 0 1.5rem;
+                display: flex;
+                gap: 1rem;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            label {
+                flex-grow: 1;
+            }
+
+            input[type='checkbox'] {
+                flex-grow: 0;
+                width: auto;
+            }
+
+            input[type='text'],
+            input[type='email'] {
+                flex-grow: 1;
+            }
+
+            input[type='submit'] {
+                @include button-bg($brand-green);
+            }
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            img {
+                display: block;
+                max-width: 100%;
+                border-radius: 0.5rem;
+            }
+
+            @include mq(lg) {
+                > * {
+                    max-width: 50%;
+                }
+                display: flex;
+                align-items: flex-start;
+                flex-direction: row;
+            }
+        }
+
+        p + p {
+            margin-top: 1em;
+        }
+
+        em {
+            @include emphasis($brand-yellow);
+        }
+
+        h2 {
+            font-size: ms(3);
+            margin-top: 1.5 * $spacing;
+            margin-bottom: $spacing;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__plan {
+        padding-top: 2 * $spacing;
+        padding-bottom: 2 * $spacing;
+        background: $brand-green;
+        color: white;
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            img {
+                display: block;
+                max-width: 100%;
+                border-radius: 0.5rem;
+            }
+
+            @include mq(lg) {
+                > * {
+                    max-width: 50%;
+                }
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+            }
+        }
+
+        p + p {
+            margin-top: 1em;
+        }
+
+        em {
+            @include emphasis($brand-yellow);
+        }
+
+        h2 {
+            font-size: ms(3);
+            margin-top: 1.5 * $spacing;
+            margin-bottom: $spacing;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__sponsor {
+        padding-top: 2 * $spacing;
+        padding-bottom: 2 * $spacing;
+        background: $brand-blue;
+        color: white;
+
+        .container {
+            position: relative;
+
+            @include mq(lg) {
+                > * {
+                    max-width: 50%;
+                }
+                display: flex;
+                flex-direction: row;
+
+                img {
+                    position: absolute;
+                    right: -2 * $spacing;
+                    top: -5 * $spacing;
+                }
+            }
+        }
+
+        p + p {
+            margin-top: 1em;
+        }
+
+        em {
+            @include emphasis($brand-yellow);
+        }
+
+        h2 {
+            font-size: ms(3);
+            margin-top: 1.5 * $spacing;
+            margin-bottom: $spacing;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}
