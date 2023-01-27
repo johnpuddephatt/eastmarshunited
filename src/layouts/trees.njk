@@ -24,7 +24,7 @@ layout: base
 <div class="tree__plan">
   <div class="container">
     <div>
-      <img src="/assets/images/tree-map.jpg" />
+      <img src="/assets/images/map.svg" />
     </div>
     <div>
       {{ plan | markdown | safe}}
@@ -39,7 +39,7 @@ layout: base
       {{ get_involved | markdown | safe}}
     </div>
     <div>
-    <form netlify>
+    <form netlify name="trees" method="POST">
       <h3>Sign up to volunteer!</h3>
 
       <div class="field">
@@ -77,18 +77,26 @@ layout: base
     <div>
       {{ sponsor | markdown | safe}}
       <br>
-      <a class="button button--inverted" href="/">Sponsor a tree</a>
+      
+      <button class="button button--inverted" data-paperform-id="sponsor-tree" data-popup-button="1">Sponsor a tree!</button>
+      <script>(function() {
+      var script = document.createElement('script');
+      script.src = "https://paperform.co/__embed.min.js";
+      document.body.appendChild(script); })()</script>
+    </div>
+    <div>
+      <img src="/assets/images/tree_2.png" />
     </div>
   </div>
 </div>
 
-<div class="invest__intro">
+<!-- <div class="invest__intro">
   <div class="container">
     <div>
       {{ tree_tales | markdown | safe}}
     </div>
   </div>
-</div>
+</div>-->
 
 <div class="invest__intro">
   <div class="container">
