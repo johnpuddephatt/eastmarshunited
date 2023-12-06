@@ -1,0 +1,137 @@
+---
+layout: base
+---
+
+<div class="invest__hero">
+  <div class="container">
+    <h1 class="invest__hero__title">{{ title }}</h1>
+    <div class="invest__hero__subtitle">{{ subtitle  | markdown | safe }}</div>
+    <a href="#invest-options" class="button button--inverted">Support our plans</a>
+  </div>
+</div>
+
+<div class="invest__intro">
+  <div class="container">
+    <div>
+      {{ intro | markdown | safe}}
+            {% if warning %}
+      <br>
+      {{ warning | markdown | safe }}
+            {% endif %}
+
+    </div>
+    <div>
+      {% if intro_image %}
+        <img  src=" {{ intro_image }}"/>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+<div class="invest__photos">
+  <div class="container">
+    <h2 class="invest__photos__title">{{ photos_title }}</h2>
+    <img src="/assets/images/houses-renovated.png" />
+  </div>
+</div>
+
+<div class="invest__benefits">
+  <div class="container">
+  <div class="invest__benefits__left">
+  <h2>{{ plan_title }}</h2>
+    {% for plan in plans %}
+      <div class="invest__benefits__item">
+        <div class="invest__benefits__item__text">
+          <h3 class="invest__benefits__item__title">
+            <span>{{ plan.title }}</span>
+            {%if plan.complete%}
+            <svg title="Completed" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0" y="0" viewBox="0 0 101.739 101.739" xml:space="preserve" width="101.739" height="101.739"><style type="text/css" id="style833">.st10{fill:none;stroke:#338d43;stroke-width:8.2591;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style><g id="g913" transform="translate(-1187.12 -798.48)"><path class="st10" d="M1284.73 845.08v4.3c-.01 25.81-20.95 46.73-46.77 46.71-25.81-.01-46.73-20.95-46.71-46.77.01-25.81 20.95-46.73 46.77-46.71 6.55 0 13.02 1.38 19 4.05" id="path909"/><path class="st10" id="polyline911" d="M1284.73 811.99l-46.74 46.79-14.02-14.02"/></g></svg>
+            {% else %}
+                  <svg title="Not yet complete" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0" y="0" viewBox="0 0 101.739 101.739" xml:space="preserve" width="101.739" height="101.739"><style type="text/css" id="style834">.st12 { opacity: 0.35} .st10x{fill:none;stroke:#b3b3b5;stroke-width:8.2591;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style><g id="g913" transform="translate(-1187.12 -798.48)"><path class="st10x st12" d="M1284.73 845.08v4.3c-.01 25.81-20.95 46.73-46.77 46.71-25.81-.01-46.73-20.95-46.71-46.77.01-25.81 20.95-46.73 46.77-46.71 6.55 0 13.02 1.38 19 4.05" id="path909"/><path class="st10x st12" id="polyline911" d="M1284.73 811.99l-46.74 46.79-14.02-14.02"/></g></svg>
+            {% endif %}
+          </h3>
+          <p class="invest__benefits__item__details">{{ plan.details | markdown | safe }}</p>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+  <div class="invest__benefits__right">
+  {% if timeline %}
+    <div>
+      <h2>Our timeline</h2>
+      <ul>
+        {% for entry in timeline %}
+          <li>{{ entry | markdownify | safe }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+</div>
+
+
+      
+
+<div class="invest__signup" id="invest-options">
+  <div class="container container__narrow">
+    <h2 class="invest__signup__title">{{ signup.title }}</h2>
+    <p class="invest__signup__subtitle">{{ signup.details }}</p>
+    <div class="invest__signup__links">
+      {% for option in signup.options %}
+        <a href="{{ option.link }}" class="invest__signup__link">
+          <h2 class="invest__signup__link__title">{{ option.title | markdown | safe }}</h2>
+          <p class="invest__signup__link__details">{{ option.details }}</p>
+          <p class="invest__signup__link__arrow">Support this work &rarr;</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% if video_embed %}
+
+<div class="invest__video">
+  <div class="container">
+      <h2 class="invest__signup__title">{{ video_title }}</h2>
+      <div class="embed-soundcloud">
+      <iframe src="{{video_embed }}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+  </div>
+</div>
+
+{% endif %}
+
+
+
+
+{% if quote.quote %}
+
+<div class="quote">
+  <div class="container quote__container">
+    <div class="quote__text">
+      <h2 class="quote__title">{{ quote.quote }}</h2>
+      <p class="quote__author">{{ quote.author }}</p>
+    </div>
+    {% icon 'logo-shape', 2028, 1186  %}
+  </div>
+</div>
+{% endif %}
+
+{% if more %}
+<div class="invest__more" id="more-information">
+  <div class="container">
+    <h2 class="invest__more__title">{{ more.title }}</h2>
+    <p class="invest__more__subtitle">{{ more.details }}</p>
+  </div>
+  <div class="container">
+    {% for item in more.questions %}
+      <details  class="invest__more__item">
+        <summary class="invest__more__item__question">{{ item.question }}</summary>
+        <div class="invest__more__item__answer">{{ item.answer | markdown | safe }}</div>
+      </details>
+    {% endfor %}
+  </div>
+</div>{% endif%}

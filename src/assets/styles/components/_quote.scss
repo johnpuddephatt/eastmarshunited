@@ -1,0 +1,160 @@
+@use 'sass:math';
+
+.quote {
+    padding: 2 * $spacing 0 4 * $spacing;
+    position: relative;
+
+    // @include orientation(landscape) {
+    //     padding: 4 * $spacing 0;
+    // }
+
+    &::before {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        left: -1em;
+        right: -1em;
+        top: 75%;
+        z-index: -1;
+        transform: translateY(-200%);
+        padding-top: 65%;
+        background-image: url('/assets/images/podcast-line.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        @include orientation(landscape) {
+            transform: translateY(-87.5%);
+        }
+    }
+
+    &__container {
+        position: relative;
+        display: flex;
+        padding-right: 2 * $spacing;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @include orientation(landscape) {
+            flex-direction: row;
+            aspect-ratio: 16/9;
+        }
+
+        .icon--logo-shape {
+            bottom: 0;
+            $width: 100%;
+            width: $width;
+            height: 100%;
+            left: -$spacing;
+            display: block;
+            position: absolute;
+            z-index: -1;
+            color: $gray-darkest;
+
+            @include orientation(portrait) {
+                display: none;
+            }
+        }
+    }
+
+    &__title {
+        font-size: ms(2);
+        margin-bottom: $spacing * 0.25;
+    }
+
+    &__author {
+        font-size: ms(-1);
+        color: white;
+        font-weight: bold;
+    }
+
+    &__button {
+        @include button-reset;
+
+        margin-top: 1.5 * $spacing;
+        font-weight: 700;
+        text-transform: lowercase;
+        padding-bottom: $spacing * 0.5;
+        border-bottom: 1px solid $gray-light;
+        font-size: ms(1);
+
+        @include orientation(landscape) {
+            font-size: ms(2);
+        }
+
+        &::before {
+            display: inline-block;
+            content: '‣';
+            color: $brand-green;
+            line-height: 0;
+            margin-top: 0.07em;
+            vertical-align: text-top;
+            font-size: ms(8);
+
+            @include orientation(landscape) {
+                margin-left: -0.4em;
+                margin-top: -0.02em;
+                font-size: ms(11);
+            }
+        }
+    }
+
+    &__text {
+        flex: 0 0 80%;
+        padding-top: $spacing;
+        margin-top: auto;
+        margin-bottom: auto;
+        position: relative;
+
+        @include mq(lg) {
+            padding-left: $spacing;
+        }
+
+        @include orientation(landscape) {
+            margin-right: 0;
+            color: white;
+            padding-left: 3 * $spacing;
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            left: 0;
+            top: -2 * $spacing;
+            content: '';
+            display: block;
+            background-image: url(/assets/images/quote.svg);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-size: ms(4);
+            color: $brand-yellow;
+            transform-origin: 50% 50%;
+            height: 2 * $spacing;
+            width: 2 * $spacing;
+
+            @include mq(lg) {
+                height: 3 * $spacing;
+                width: 3 * $spacing;
+            }
+        }
+
+        &::after {
+            left: 100%;
+            top: 120%;
+            transform: rotate(180deg) translateY(50%);
+
+            @include orientation(landscape) {
+                top: 100%;
+                transform: rotate(180deg);
+            }
+        }
+
+        p {
+            font-size: ms(-1);
+            color: $gray;
+        }
+    }
+}
