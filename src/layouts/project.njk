@@ -4,10 +4,17 @@ layout: base
 
 <div class="invest__hero">
   <div class="container">
+  <div  class="invest__hero__project-label">Project</div>
     <h1 class="invest__hero__title">{{ title }}</h1>
     <div class="invest__hero__subtitle">{{ subtitle  | markdown | safe }}</div>
     <a href="#invest-options" class="button button--inverted">Support our plans</a>
+
+    {% if logo %}
+      <img class="invest__hero__image" src="{{ logo }}" />
+    {% endif %}
   </div>
+
+
 </div>
 
 <div class="invest__intro">
@@ -22,7 +29,7 @@ layout: base
     </div>
     <div>
       {% if intro_image %}
-        <img  src=" {{ intro_image }}"/>
+        <img src="{{ intro_image }}"/>
       {% endif %}
     </div>
 
@@ -32,7 +39,7 @@ layout: base
 <div class="invest__photos">
   <div class="container">
     <h2 class="invest__photos__title">{{ photos_title }}</h2>
-    <img src="/uploads/grimsby-before-after.png" />
+    <img src="/uploads/grimsby-before-after.jpg" />
   </div>
 </div>
 
