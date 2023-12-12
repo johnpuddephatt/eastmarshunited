@@ -7,8 +7,9 @@ layout: base
   <div  class="invest__hero__project-label">Project</div>
     <h1 class="invest__hero__title">{{ title }}</h1>
     <div class="invest__hero__subtitle">{{ subtitle  | markdown | safe }}</div>
-    <a href="#invest-options" class="button button--inverted">Support our plans</a>
-
+    {% if hero_button_text %}
+    <a href="#invest-options" class="button button--inverted">{{ hero_button_text }}</a>
+    {% endif %}
     {% if logo %}
       <img class="invest__hero__image" src="{{ logo }}" />
     {% endif %}
