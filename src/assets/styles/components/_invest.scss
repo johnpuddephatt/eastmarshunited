@@ -218,21 +218,20 @@
         }
 
         &__item {
-            max-width: 30rem;
             padding: 0;
             text-decoration: none;
             transition: box-shadow 0.5s ease;
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             color: $text-color;
-
-            @include overline($brand-blue);
 
             @include orientation(portrait) {
                 max-width: none;
             }
 
             @include orientation(landscape) {
+                flex-direction: row;
+                gap: 2 * $spacing;
                 margin-top: 0;
                 margin-bottom: 0;
                 margin-right: 2 * $spacing;
@@ -259,7 +258,21 @@
                 }
             }
 
+            &__image {
+                width: 5 * $spacing;
+                height: auto;
+                margin-bottom: $spacing;
+                border-radius: 0.5rem;
+                margin-top: $spacing/2;
+                @include orientation(landscape) {
+                    margin-bottom: auto;
+                    width: 7 * $spacing;
+                }
+            }
+
             &__text {
+                @include overline($brand-blue);
+                max-width: 30rem;
                 p,
                 ul {
                     font-size: ms(-1);

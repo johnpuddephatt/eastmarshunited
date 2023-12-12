@@ -53,22 +53,12 @@ layout: base
           </h3>
           <p class="invest__benefits__item__details">{{ plan.details | markdown | safe }}</p>
         </div>
+        <img src="{{ plan.image }}" class="invest__benefits__item__image" />
       </div>
     {% endfor %}
 
   </div>
-  <div class="invest__benefits__right">
-  {% if timeline %}
-    <div>
-      <h2>Our timeline</h2>
-      <ul>
-        {% for entry in timeline %}
-          <li>{{ entry | markdownify | safe }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-  </div>
+  
 </div>
 </div>
 

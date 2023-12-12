@@ -136,6 +136,7 @@
     &::before {
         display: block;
         content: '';
+        flex-grow: 0;
         width: 3 * $spacing;
         max-width: 20%;
         height: $spacing * 0.125;
