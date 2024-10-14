@@ -36,12 +36,9 @@ eleventyNavigation:
       {% icon 'latest-news', 79, 50 %}
 
       <a href="/{{ featured_post.date | dateToFormat('yyyy/MM/dd') }}/{{ featured_post.slug }}" class="news__post news__post--featured">
-          {% set featured_post_image = featured_post._embedded['wp:featuredmedia'][0] %}
-          {% if featured_post_image %}
-            {% wp_image featured_post_image, 'news__post--featured__image', '(min-width: 1330px) 420px, (orientation: portrait: 95vw), 40vw', 1.5 %}
-          {% else %}
-            <img class="news__post--featured__image" src="/assets/images/placeholder.png" />
-          {% endif %}
+          
+            <img class="news__post--featured__image" src="{{featured_post.jetpack_featured_media_url}}" />
+          
         <div class="news__post__text">
           <h2 class="news__post--featured__title">{{ featured_post.title.rendered | safe }}</h2>
           <time class="news__post__date" datetime="{{ featured_post.date }}">{{ featured_post.date | dateToFormat('DDD') }}</time>
@@ -55,12 +52,9 @@ eleventyNavigation:
       <div class="container container__posts">
         {% for post in home_posts | array_slice(1,4) %}
           <a href="/{{ post.date | dateToFormat('yyyy/MM/dd') }}/{{ post.slug }}" class="news__post">
-            {% set post_image = post._embedded['wp:featuredmedia'][0] %}
-            {% if post_image %}
-              {% wp_image post_image, 'news__post__image', "6em" %}
-            {% else %}
-              <img class="news__post__image" src="/assets/images/placeholder.png" />
-            {% endif %}
+         
+              <img class="news__post__image" src="{{post.jetpack_featured_media_url}}" />
+         
             <div class="news__post__text">
               <h2 class="news__post__title">{{ post.title.rendered | safe }}</h2>
               <time class="news__post__date" datetime="{{ post.date }}">{{ post.date | dateToFormat('DDD') }}</time>

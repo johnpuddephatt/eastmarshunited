@@ -7,6 +7,9 @@ module.exports = {
       </svg>`
     },
     wp_image: function (image, className, sizes, ratio) {
+        if (!image || !image.media_details) {
+            return false
+        }
         let srcset = ''
         let sizeNames = ['medium', 'large']
         for (var i = 0; i < sizeNames.length; i++) {

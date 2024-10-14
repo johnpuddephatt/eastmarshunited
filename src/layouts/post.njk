@@ -28,9 +28,10 @@ header_color: white
 
     <a class="comment-count post__comment-count" href="#commento"></a>
 
-    {% if featured_image %}
+
+    {% if blogpost.jetpack_featured_media_url %}
       <div class="post__featured-image">
-        {% wp_image featured_image, '', '(min-width: 1330px) 780px, (orientation: portrait: 95vw), 65vw', 1.5 %}
+        <img class="" src="{{ blogpost.jetpack_featured_media_url}}" />
       </div>
     {% endif %}
 
