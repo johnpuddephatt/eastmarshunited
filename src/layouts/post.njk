@@ -42,7 +42,6 @@ header_color: white
     <aside class="post__byline">
       {% wp_avatar author, "post__byline__image" %}
       <div>
-        <p class="post__byline__name"><span class="sr-only">Written by</span> {{ author.name }}</p>
         <time class="post__byline__date" datetime="{{ blogpost.date }}">{{ blogpost.date | dateToFormat('DDD') }}</time>
       </div>
     </aside>
